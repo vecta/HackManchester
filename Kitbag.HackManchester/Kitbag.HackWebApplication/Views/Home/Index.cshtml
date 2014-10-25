@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Kitbag.HackWebApplication.Models.HomeViewModel
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -21,7 +22,7 @@
         <h2>My Feed</h2>
 
         @Html.Partial("_UpdateStatus")
-        @Html.Partial("_CentralFeed")
+        @Html.Partial("_CentralFeed", Model.Statuses)
 
     </div>
     <div class="col-md-3">

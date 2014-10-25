@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using Kitbag.Database;
+using Kitbag.Domain;
+using Kitbag.HackWebApplication.Models;
 
 namespace Kitbag.HackWebApplication.Controllers
 {
@@ -11,7 +10,10 @@ namespace Kitbag.HackWebApplication.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            return View();
+            var model = new HomeViewModel();
+            var repository = new Repository<Status>(new CwonData());
+            model.Statuses = repository.GetAll();
+            return View(model);
         }
 
         public ActionResult About()
