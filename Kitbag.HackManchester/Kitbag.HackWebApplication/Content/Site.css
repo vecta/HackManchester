@@ -3,6 +3,9 @@
     padding-bottom: 20px;
 }
 
+.c-won-Font { font-family: 'ABeeZee', sans-serif; }
+.navbar-brand{ font-size: 18pt;}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
