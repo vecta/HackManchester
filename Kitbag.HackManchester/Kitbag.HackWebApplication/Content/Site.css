@@ -74,10 +74,12 @@ textarea {
     float: left;
     margin: 10px;
     text-align: center;
+    width:120px;
 }
 
     #people .person img {
         margin: 3px;
+        width:113px;
     }
 
     #people .person .name {
@@ -85,9 +87,11 @@ textarea {
     }
 
     #people .person .working-on-label {
+        font-size:0.8em;
     }
 
     #people .person .working-on {
+        font-size:0.8em;
         font-style: italic;
     }
 
@@ -114,3 +118,8 @@ h3.site-sub-title {
     #feed-right .feed-entry {
         border-bottom: 1px solid #ccc;
     }
+
+        #feed-right .feed-entry .period {
+            color:#555;
+            font-style:italic;
+        }

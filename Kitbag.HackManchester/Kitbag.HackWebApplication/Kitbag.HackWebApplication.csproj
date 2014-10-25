@@ -170,6 +170,7 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MyProfileController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="ExtensionMethods\HtmlHelperExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -258,6 +259,7 @@
     <Content Include="Views\Shared\_People.cshtml" />
     <Content Include="Views\Person\View.cshtml" />
     <Content Include="Views\Shared\_RightFeed.cshtml" />
+    <Content Include="Views\MyProfile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
