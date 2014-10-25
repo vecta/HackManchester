@@ -36,7 +36,7 @@ CREATE TABLE [dbo].[Person](
 	[SocialMediaSourceId] [int] NOT NULL,
 	[FirstName] [nvarchar](256) NOT NULL,
 	[LastName] [nvarchar](256) NOT NULL,
-	[OrganisationId] [int] NOT NULL,
+	[OrganisationId] [int] NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC

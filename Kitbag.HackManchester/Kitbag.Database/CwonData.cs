@@ -1,3 +1,5 @@
+using Kitbag.Domain;
+
 namespace Kitbag.Database
 {
     using System;

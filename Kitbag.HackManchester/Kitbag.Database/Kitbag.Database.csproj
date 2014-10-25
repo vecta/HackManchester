@@ -48,21 +48,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AspNetRole.cs" />
-    <Compile Include="AspNetUser.cs" />
-    <Compile Include="AspNetUserClaim.cs" />
-    <Compile Include="AspNetUserLogin.cs" />
-    <Compile Include="CurrentlyWorkingOn.cs" />
     <Compile Include="CwonData.cs" />
-    <Compile Include="Group.cs" />
-    <Compile Include="Person.cs" />
+    <Compile Include="Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SocialMediaSource.cs" />
-    <Compile Include="Status.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kitbag.Domain\Kitbag.Domain.csproj">
+      <Project>{a37c4658-fc5c-4bee-b4cd-8fb7c97df9de}</Project>
+      <Name>Kitbag.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
