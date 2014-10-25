@@ -53,3 +53,18 @@ GO
 ALTER TABLE [dbo].[PersonGroup]  WITH CHECK ADD FOREIGN KEY([PersonId])
 REFERENCES [dbo].[Person] ([Id])
 GO
+
+alter table groupcurrentlyworkingon
+add constraint Primary_Key_Id_GroupId_CurrentlyWorkingOnId primary key(GroupId, CurrentlyWorkingOnId)
+
+alter table groupstatus
+add constraint Primary_Key_Id_GroupId_StatusId primary key(GroupId, StatusId)
+
+alter table personcurrentlyworkingon
+add constraint Primary_Key_Id_PersonId_CurrentlyWorkingOnId primary key(PersonId, CurrentlyWorkingOnId)
+
+alter table persongroup
+add constraint Primary_Key_Id_PersonId_GroupId primary key(PersonId, GroupId)
+
+alter table personstatus
+add constraint Primary_Key_Id_PersonId_StatusId primary key(PersonId, StatusId)
