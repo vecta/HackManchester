@@ -24,12 +24,18 @@ namespace Kitbag.HackWebApplication.Controllers
             var person = personRepository.Get(id);
 
             var model = new PersonViewModel();
-            model.Name = string.Format("{0} {1}", person.FirstName, person.LastName);
-            model.Group = "Marketing";
-            model.Email = "myamazingemail@email.com";
-            model.Telephone = "0000-000-0000";
-            model.Skype = "MyAmazingSkypeName";
 
+            if (person != null)
+            {
+                model.Name = string.Format("{0} {1}", person.FirstName, person.LastName);
+                model.Group = "Marketing";
+                model.Email = "myamazingemail@email.com";
+                model.Telephone = "0000-000-0000";
+                model.Skype = "MyAmazingSkypeName";
+                model.CurrentlyWorkingOn =
+                    person.CurrentlyWorkingOns.OrderByDescending(m => m.Id).First().CurrentlyWorkingOn1;
+            }
+            
             return View(model);
         }
     }
