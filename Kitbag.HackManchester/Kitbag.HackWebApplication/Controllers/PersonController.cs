@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kitbag.HackWebApplication.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,9 +15,12 @@ namespace Kitbag.HackWebApplication.Controllers
             return View();
         }
 
-        public ActionResult View()
+        public ActionResult View(int id)
         {
-            return View();
+            var model = new PersonViewModel();
+            model.Name = "Steve McLovin";
+
+            return View(model);
         }
     }
 }

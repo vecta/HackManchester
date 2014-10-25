@@ -44,6 +44,11 @@ namespace Kitbag.HackWebApplication.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            if(User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("/home/index");
+            }
+
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -347,6 +352,11 @@ namespace Kitbag.HackWebApplication.Controllers
             if (user != null)
             {
                 await SignInAsync(user, isPersistent: false);
+
+                // TODO : HERE IS WHERE WE NEED TO CREATE A PERSON??
+
+
+
                 return RedirectToLocal(returnUrl);
             }
             else

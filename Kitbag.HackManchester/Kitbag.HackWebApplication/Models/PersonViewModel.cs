@@ -7,5 +7,7 @@ namespace Kitbag.HackWebApplication.Models
 {
     public class PersonViewModel
     {
+        public string Name { get; set; }
+
     }
 }

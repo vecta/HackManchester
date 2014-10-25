@@ -89,3 +89,15 @@ textarea {
     #people .person .working-on {
         font-style:italic;
     }
+
+footer p {
+    text-align:center;
+}
+
+h2.site-title {
+    text-align:center;
+}
+
+h3.site-sub-title {
+    text-align:center;
+}

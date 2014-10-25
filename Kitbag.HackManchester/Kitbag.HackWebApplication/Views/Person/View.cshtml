@@ -1,0 +1,27 @@
+﻿@model Kitbag.HackWebApplication.Models.PersonViewModel
+@{
+    ViewBag.Title = @Model.Name;
+}
+
+<h1>@HttpContext.Current.User.Identity.Name</h1>
+
+<h2>@Model.Name</h2>
+
+<div id="person-profile">
+    <div class="image">
+        <img src="~/Content/images/headshot.jpg" />
+    </div>
+
+    <div class="details">
+        <div class="name">@Model.Name</div>
+        <div class="group">Marketting</div>
+    </div>
+
+    <div class="details">
+        <h3>Contact Details</h3>
+        <div class="email">Email : </div>
+        <div class="telephone">Telephone : </div>
+        <div class="skype">Skype : </div>
+    </div>
+</div>
+
