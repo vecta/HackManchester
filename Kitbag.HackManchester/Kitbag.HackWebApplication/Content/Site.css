@@ -20,92 +20,98 @@ textarea {
 }
 
 #profileSmall #image {
-    float:left;
-    margin-right:10px;
+    float: left;
+    margin-right: 10px;
 }
 
 #profileSmall #name {
-    font-weight:bold;
-
+    font-weight: bold;
 }
 
 #profileSmall #name-and-group {
-    float:left;
+    float: left;
 }
 
 #feed textarea.new-status {
-    max-width:none !important;
-    width:100% !important;
+    max-width: none !important;
+    width: 100% !important;
 }
 
 #feed .feed-status {
-    clear:both;
-    margin-bottom:20px;
+    clear: both;
+    margin-bottom: 20px;
 }
 
     #feed .feed-status .post {
-        float:left;
+        float: left;
     }
 
         #feed .feed-status .post .when {
-            font-style:italic;
-        } 
+            font-style: italic;
+        }
 
 #feed .user-image {
-    float:left;
-    margin-right:10px;
+    float: left;
+    margin-right: 10px;
 }
 
 #feed .user-name {
 }
 
 #groups .group {
-    background-color:#ccc;
-    border:1px solid #bbb;
-    border-radius:5px;
-    float:left; 
-    height:150px;
-    text-align:center;
-    width:150px;
-    margin:10px;
-
+    background-color: #ccc;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    float: left;
+    height: 150px;
+    text-align: center;
+    width: 150px;
+    margin: 10px;
 }
 
 #people .person {
-    border:1px solid #ccc;
-    float:left;
-    margin:10px;
-    text-align:center;
+    border: 1px solid #ccc;
+    float: left;
+    margin: 10px;
+    text-align: center;
 }
 
     #people .person img {
-        margin:3px;
+        margin: 3px;
     }
 
     #people .person .name {
-        font-weight:bold;
+        font-weight: bold;
     }
 
     #people .person .working-on-label {
     }
 
     #people .person .working-on {
-        font-style:italic;
+        font-style: italic;
     }
 
 footer p {
-    text-align:center;
+    text-align: center;
 }
 
 h2.site-title {
-    font-weight:bold;
-    font-size:4em;
-    margin-top:100px;
-    text-align:center;
-
+    font-weight: bold;
+    font-size: 4em;
+    margin-top: 100px;
+    text-align: center;
 }
 
 h3.site-sub-title {
-    font-size:2em;
-    text-align:center;
+    font-size: 2em;
+    text-align: center;
 }
+
+#feed-right {
+    /*border-left: 1px solid #ccc;*/
+    margin-top: 20px;
+}
+
+    #feed-right .feed-entry {
+        border-bottom: 1px solid #ccc;
+    }
