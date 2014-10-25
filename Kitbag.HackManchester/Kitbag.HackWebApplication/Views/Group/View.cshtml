@@ -4,14 +4,24 @@
     ViewBag.Title = "View";
 }
 
-<h2>Badger Trousers</h2>
+<div class="row">
 
-@if (Model.IsOrganisation)
-{
-    @Html.Partial("_Groups")
-}
-else
-{
-    @Html.Partial("_People")
-}
-<div class="clearfix"></div>
+    <div class="col-md-9">
+        <h2>Badger Trousers</h2>
+
+
+        @if (Model.IsOrganisation)
+        {
+            @Html.Partial("_Groups")
+        }
+        else
+        {
+            @Html.Partial("_People")
+        }
+        <div class="clearfix"></div>
+    </div>
+    <div class="col-md-3" style="float:left;">
+        <h3>Group Feed</h3>
+        @Html.Partial("_RightFeed")
+    </div>
+</div>
