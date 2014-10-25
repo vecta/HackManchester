@@ -12,7 +12,7 @@ namespace Kitbag.HackWebApplication.Controllers
     public class GroupController : Controller
     {
         PersonRepository personRepository = new PersonRepository(new CwonData());
-        Repository<Group> groupRepository = new Repository<Group>(new CwonData());
+        GroupRepository groupRepository = new GroupRepository(new CwonData());
 
         // GET: Group
         public ActionResult Index()
@@ -23,10 +23,11 @@ namespace Kitbag.HackWebApplication.Controllers
         public ActionResult View(int id)
         {
             var model = new GroupViewModel();
-            //model.Group = 
+            model.Group = groupRepository.Get(id);
+            model.Groups = groupRepository.GetByGroup(id).ToList();
             model.People = personRepository.GetByGroup(id).ToList();
 
-            model.IsOrganisation = Request.QueryString["org"] == "true";
+            model.IsOrganisation = !model.Group.ParentId.HasValue;
 
             return View(model);
         }

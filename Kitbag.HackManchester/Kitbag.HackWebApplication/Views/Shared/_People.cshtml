@@ -1,14 +1,16 @@
-﻿@{
+﻿@model List<Kitbag.Domain.Person>
+
+@{
 }
 
 <div id="people">
 
-    @for (int x = 0; x < 20; x++)
+    @foreach (var person in Model)
     {
         <div class="person">
-            <div class="name">Steve McLovin</div>
-            <a href="/person/view/@x.ToString()">
-                <img src="~/Content/images/headshot.jpg" />
+            <div class="name">@person.FirstName @person.LastName</div>
+            <a href="/person/view/@person.Id">
+                @Html.RenderGravatarImage(person.Email, 113)
             </a>
             <div class="working-on-label">Currently working on..</div>
             <div class="working-on">Year end financial report</div>

@@ -1,18 +1,17 @@
 ﻿@model Kitbag.HackWebApplication.Models.GroupViewModel
 
 @{
-    ViewBag.Title = "View";
+    ViewBag.Title = Model.Group.Name;
 }
 
 <div class="row">
 
     <div class="col-md-9">
-        <h2>Badger Trousers</h2>
-
+        <h2>@Model.Group.Name</h2>
 
         @if (Model.IsOrganisation)
         {
-            @Html.Partial("_Groups")
+            @Html.Partial("_Groups", Model.Groups)
         }
         else
         {
@@ -21,7 +20,7 @@
         <div class="clearfix"></div>
     </div>
     <div class="col-md-3" style="float:left;">
-        <h3>Group Feed</h3>
+        <h3>@Model.Group.Name Feed</h3>
         @Html.Partial("_RightFeed")
     </div>
 </div>

@@ -1,14 +1,13 @@
-﻿
+﻿@model List<Kitbag.Domain.Group>
 @{
 }
 
 <div id="groups">
 
-    @for (int x = 0; x < 9; x++)
+    @foreach (var group in Model)
     {
         <div class="group">
-            @Html.ActionLink("Group " + x.ToString(), "view", "group", new { id=1}, null)
-            
+            @Html.ActionLink(group.Name, "view", "group", new { id = group.Id }, null)
         </div>
     }
 

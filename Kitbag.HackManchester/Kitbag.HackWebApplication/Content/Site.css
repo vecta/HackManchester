@@ -69,6 +69,14 @@ textarea {
     margin: 10px;
 }
 
+#groups .group a {
+    color:#000;
+    display:block;
+    height:150px;
+    padding-top:60px;
+    width:150px;
+}
+
 #people .person {
     border: 1px solid #ccc;
     float: left;

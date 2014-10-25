@@ -15,5 +15,13 @@ namespace Kitbag.Database
         {
             return _dbContext.People.SingleOrDefault(person => string.Compare(person.Email, email, StringComparison.InvariantCultureIgnoreCase) == 0);
         }
+        public IList<Person> GetByGroup(int groupId)
+        {
+            
+            var people = base._dbContext.Groups.FirstOrDefault(x => x.Id == groupId).People1.ToList();
+
+
+            return people;
+        }
     }
 }
