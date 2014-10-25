@@ -33,9 +33,9 @@ GO
 CREATE TABLE [dbo].[Person](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Email] [nvarchar](256) NOT NULL,
-	[SocialMediaSourceId] [int] NOT NULL,
-	[FirstName] [nvarchar](256) NOT NULL,
-	[LastName] [nvarchar](256) NOT NULL,
+	[SocialMediaSourceId] [int] NULL,
+	[FirstName] [nvarchar](256) NULL,
+	[LastName] [nvarchar](256) NULL,
 	[OrganisationId] [int] NULL,
 PRIMARY KEY CLUSTERED 
 (
