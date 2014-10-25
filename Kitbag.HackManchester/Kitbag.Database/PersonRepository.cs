@@ -1,22 +1,19 @@
-﻿using Kitbag.Domain;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Kitbag.Domain;
 
 namespace Kitbag.Database
 {
     public class PersonRepository : Repository<Person>
     {
-        public PersonRepository(CwonData dbContext) : base(dbContext)
-        {
+        public PersonRepository(CwonData dbContext) : base(dbContext) { }
 
-        }
+        public IEnumerable<Person> GetByGroup(int groupId) { return _dbContext.People.Where(x => x.Id == groupId).ToList(); }
 
-        public IList<Person> GetByGroup(int groupId)
+        public Person GetByEmail(string email)
         {
-            return base._dbContext.People.Where(x => x.Id == groupId).ToList();
+            return _dbContext.People.SingleOrDefault(person => string.Compare(person.Email, email, StringComparison.InvariantCultureIgnoreCase) == 0);
         }
     }
 }
