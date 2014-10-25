@@ -13,5 +13,10 @@ namespace Kitbag.HackWebApplication.Controllers
         {
             return View();
         }
+
+        public ActionResult View()
+        {
+            return View();
+        }
     }
 }
