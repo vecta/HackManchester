@@ -1,0 +1,55 @@
+ALTER TABLE [dbo].[Person]  WITH CHECK ADD FOREIGN KEY([OrganisationId])
+REFERENCES [dbo].[Group] ([Id])
+GO
+
+ALTER TABLE [dbo].[Person]  WITH CHECK ADD FOREIGN KEY([SocialMediaSourceId])
+REFERENCES [dbo].[SocialMediaSource] ([Id])
+GO
+
+ALTER TABLE [dbo].[Group]  WITH CHECK ADD FOREIGN KEY([OwnerId])
+REFERENCES [dbo].[Person] ([Id])
+GO
+
+ALTER TABLE [dbo].[Group]  WITH CHECK ADD FOREIGN KEY([ParentId])
+REFERENCES [dbo].[Group] ([Id])
+GO
+
+ALTER TABLE [dbo].[PersonStatus]  WITH CHECK ADD FOREIGN KEY([PersonId])
+REFERENCES [dbo].[Person] ([Id])
+GO
+
+ALTER TABLE [dbo].[PersonStatus]  WITH CHECK ADD FOREIGN KEY([StatusId])
+REFERENCES [dbo].[Status] ([Id])
+GO
+
+ALTER TABLE [dbo].[GroupStatus]  WITH CHECK ADD FOREIGN KEY([GroupId])
+REFERENCES [dbo].[Group] ([Id])
+GO
+
+ALTER TABLE [dbo].[GroupStatus]  WITH CHECK ADD FOREIGN KEY([StatusId])
+REFERENCES [dbo].[Status] ([Id])
+GO
+
+ALTER TABLE [dbo].[PersonCurrentlyWorkingOn]  WITH CHECK ADD FOREIGN KEY([CurrentlyWorkingOnId])
+REFERENCES [dbo].[CurrentlyWorkingOn] ([Id])
+GO
+
+ALTER TABLE [dbo].[PersonCurrentlyWorkingOn]  WITH CHECK ADD FOREIGN KEY([PersonId])
+REFERENCES [dbo].[Person] ([Id])
+GO
+
+ALTER TABLE [dbo].[GroupCurrentlyWorkingOn]  WITH CHECK ADD FOREIGN KEY([CurrentlyWorkingOnId])
+REFERENCES [dbo].[CurrentlyWorkingOn] ([Id])
+GO
+
+ALTER TABLE [dbo].[GroupCurrentlyWorkingOn]  WITH CHECK ADD FOREIGN KEY([GroupId])
+REFERENCES [dbo].[Group] ([Id])
+GO
+
+ALTER TABLE [dbo].[PersonGroup]  WITH CHECK ADD FOREIGN KEY([GroupId])
+REFERENCES [dbo].[Group] ([Id])
+GO
+
+ALTER TABLE [dbo].[PersonGroup]  WITH CHECK ADD FOREIGN KEY([PersonId])
+REFERENCES [dbo].[Person] ([Id])
+GO
