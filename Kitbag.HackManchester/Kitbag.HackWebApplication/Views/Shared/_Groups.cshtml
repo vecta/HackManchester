@@ -1,6 +1,5 @@
 ﻿
 @{
-    ViewBag.Title = "_Groups";
 }
 
 <div id="groups">
@@ -8,7 +7,8 @@
     @for (int x = 0; x < 9; x++)
     {
         <div class="group">
-            Group @x.ToString()
+            @Html.ActionLink("Group " + x.ToString(), "view", "group", new { id=1}, null)
+            
         </div>
     }
 

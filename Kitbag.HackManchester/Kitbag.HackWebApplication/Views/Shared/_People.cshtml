@@ -1,0 +1,18 @@
+﻿@{
+}
+
+<div id="people">
+
+    @for (int x = 0; x < 20; x++)
+    {
+        <div class="person">
+            <div class="name">Steve McLovin</div>
+            <a href="/person/view/@x.ToString()">
+                <img src="~/Content/images/headshot.jpg" />
+            </a>
+            <div class="working-on-label">Currently working on..</div>
+            <div class="working-on">Year end financial report</div>
+        </div>
+    }
+
+</div>

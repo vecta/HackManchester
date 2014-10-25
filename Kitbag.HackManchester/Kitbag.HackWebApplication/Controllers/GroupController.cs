@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kitbag.HackWebApplication.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,7 +17,10 @@ namespace Kitbag.HackWebApplication.Controllers
 
         public ActionResult View(int id)
         {
-            return View();
+            var model = new GroupViewModel();
+            model.IsOrganisation = Request.QueryString["org"] == "true";
+
+            return View(model);
         }
     }
 }
