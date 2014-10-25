@@ -5,6 +5,8 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Kitbag.Database;
+using Kitbag.Domain;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -60,6 +62,7 @@ namespace Kitbag.HackWebApplication.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindAsync(model.Email, model.Password);
@@ -353,9 +356,14 @@ namespace Kitbag.HackWebApplication.Controllers
             {
                 await SignInAsync(user, isPersistent: false);
 
-                // TODO : HERE IS WHERE WE NEED TO CREATE A PERSON??
+                var personRepository = new PersonRepository(new CwonData());
+                var existingUserRecord = personRepository.GetByEmail(user.Email);
 
-
+                if (existingUserRecord == null)
+                {
+                    var newUser = new Person { Email = user.Email };
+                    personRepository.Create(newUser);
+                }
 
                 return RedirectToLocal(returnUrl);
             }
