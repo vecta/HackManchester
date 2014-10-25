@@ -15,3 +15,39 @@ select,
 textarea {
     max-width: 280px;
 }
+
+#profileSmall #image {
+    float:left;
+    margin-right:10px;
+}
+
+#profileSmall #name {
+    font-weight:bold;
+
+}
+
+#profileSmall #name-and-group {
+    float:left;
+}
+
+#feed .feed-status {
+    clear:both;
+    margin-bottom:20px;
+}
+
+    #feed .feed-status .post {
+        float:left;
+    }
+
+        #feed .feed-status .post .when {
+            font-style:italic;
+        } 
+
+#feed .user-image {
+    float:left;
+    margin-right:10px;
+}
+
+#feed .user-name {
+}
+

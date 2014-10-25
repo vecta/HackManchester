@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "_Feed";
+}
+
+<div id="feed">
+
+    @for (int x = 0; x < 10; x++)
+    {
+        <div class="feed-status">
+
+            <div class="user-image">
+                @Html.RenderGravatarImage("lee.englestone@gmail.com", 50)
+            </div>
+            <div class="post">
+                <div class="user-name">
+                    @Html.ActionLink("Lee Englestone", "view", "person", new { id = 1 }, null)
+                </div>
+                <div class="message">
+                    Here is some image.. ra ra ra ra ra
+                </div>
+                <div class="when">
+                    About 1 hour ago
+                </div>
+            </div>
+        </div>
+        <hr style="clear:both" />
+    }
+
+</div>
