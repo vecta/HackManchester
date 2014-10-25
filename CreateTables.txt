@@ -1,0 +1,250 @@
+/****** Object:  Table [dbo].[SocialMediaSource]    Script Date: 25/10/2014 14:36:38 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[SocialMediaSource](
+	[Id] [int] NOT NULL,
+	[Name] [nvarchar](128) NOT NULL,
+ CONSTRAINT [PK_SocialMediaSource] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+
+
+
+
+
+
+/****** Object:  Table [dbo].[Person]    Script Date: 25/10/2014 14:37:48 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Person](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Email] [nvarchar](256) NOT NULL,
+	[SocialMediaSourceId] [int] NOT NULL,
+	[FirstName] [nvarchar](256) NOT NULL,
+	[LastName] [nvarchar](256) NOT NULL,
+	[OrganisationId] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+
+
+
+
+/****** Object:  Table [dbo].[Group]    Script Date: 25/10/2014 14:40:41 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Group](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](256) NOT NULL,
+	[OwnerId] [int] NOT NULL,
+	[ParentId] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+
+
+
+
+/****** Object:  Table [dbo].[PersonStatus]    Script Date: 25/10/2014 14:41:26 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[PersonStatus](
+	[PersonId] [int] NOT NULL,
+	[StatusId] [int] NOT NULL,
+ CONSTRAINT [Unique_PersonId_StatusId] UNIQUE NONCLUSTERED 
+(
+	[PersonId] ASC,
+	[StatusId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+
+
+
+
+/****** Object:  Table [dbo].[GroupStatus]    Script Date: 25/10/2014 14:43:07 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[GroupStatus](
+	[GroupId] [int] NOT NULL,
+	[StatusId] [int] NOT NULL,
+ CONSTRAINT [Unique_GroupId_StatusId] UNIQUE NONCLUSTERED 
+(
+	[GroupId] ASC,
+	[StatusId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+
+
+
+
+/****** Object:  Table [dbo].[Status]    Script Date: 25/10/2014 14:44:40 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Status](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Status] [nvarchar](500) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+
+
+
+
+/****** Object:  Table [dbo].[PersonCurrentlyWorkingOn]    Script Date: 25/10/2014 14:45:13 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[PersonCurrentlyWorkingOn](
+	[PersonId] [int] NOT NULL,
+	[CurrentlyWorkingOnId] [int] NOT NULL,
+ CONSTRAINT [Unique_PersonId_CurrentlyWorkingOnId] UNIQUE NONCLUSTERED 
+(
+	[PersonId] ASC,
+	[CurrentlyWorkingOnId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+
+
+/****** Object:  Table [dbo].[GroupCurrentlyWorkingOn]    Script Date: 25/10/2014 14:46:13 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[GroupCurrentlyWorkingOn](
+	[GroupId] [int] NOT NULL,
+	[CurrentlyWorkingOnId] [int] NOT NULL,
+ CONSTRAINT [Unique_GroupId_CurrentlyWorkingOnId] UNIQUE NONCLUSTERED 
+(
+	[GroupId] ASC,
+	[CurrentlyWorkingOnId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+
+
+
+/****** Object:  Table [dbo].[CurrentlyWorkingOn]    Script Date: 25/10/2014 14:47:41 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[CurrentlyWorkingOn](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CurrentlyWorkingOn] [nvarchar](500) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+
+/****** Object:  Table [dbo].[PersonGroup]    Script Date: 25/10/2014 14:48:19 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[PersonGroup](
+	[PersonId] [int] NOT NULL,
+	[GroupId] [int] NOT NULL,
+ CONSTRAINT [Unique_Person_Group] UNIQUE NONCLUSTERED 
+(
+	[PersonId] ASC,
+	[GroupId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
