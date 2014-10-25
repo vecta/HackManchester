@@ -32,8 +32,13 @@ namespace Kitbag.HackWebApplication.Controllers
                 model.Email = "myamazingemail@email.com";
                 model.Telephone = "0000-000-0000";
                 model.Skype = "MyAmazingSkypeName";
-                model.CurrentlyWorkingOn =
-                    person.CurrentlyWorkingOns.OrderByDescending(m => m.Id).First().CurrentlyWorkingOn1;
+
+                var currentlyWorkingOn = person.CurrentlyWorkingOns.OrderByDescending(m => m.Id).FirstOrDefault();
+                
+                if (currentlyWorkingOn != null)
+                    model.CurrentlyWorkingOn = currentlyWorkingOn.CurrentlyWorkingOn1;
+
+                model.Groups = person.Groups1.ToList();
             }
             
             return View(model);
