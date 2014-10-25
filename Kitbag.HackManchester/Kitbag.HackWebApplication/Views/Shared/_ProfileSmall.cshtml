@@ -1,7 +1,7 @@
 ﻿<div id="profileSmall">
 
     <div id="image">
-        @Html.RenderGravatarImage("lee.englestone@gmail.com", 100)
+        @Html.RenderGravatarImage(HttpContext.Current.User.Identity.Name, 100)
     </div>
 
     <div id="name-and-group">

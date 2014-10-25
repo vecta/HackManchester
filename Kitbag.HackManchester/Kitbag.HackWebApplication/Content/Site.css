@@ -98,9 +98,14 @@ footer p {
 }
 
 h2.site-title {
+    font-weight:bold;
+    font-size:4em;
+    margin-top:100px;
     text-align:center;
+
 }
 
 h3.site-sub-title {
+    font-size:2em;
     text-align:center;
 }
