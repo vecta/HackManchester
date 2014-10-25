@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Kitbag.HackWebApplication.Models
 {
-    public class DashboardViewModel
+    public class MyProfileViewModel
     {
     }
 }
