@@ -9,10 +9,10 @@ namespace Kitbag.Domain
     {
         public Person()
         {
-            //Groups = new HashSet<Group>();
-            //CurrentlyWorkingOns = new HashSet<CurrentlyWorkingOn>();
-            //Groups1 = new HashSet<Group>();
-            //Status = new HashSet<Status>();
+            Groups = new HashSet<Group>();
+            CurrentlyWorkingOns = new HashSet<CurrentlyWorkingOn>();
+            Groups1 = new HashSet<Group>();
+            Status = new HashSet<Status>();
         }
 
         public int Id { get; set; }
