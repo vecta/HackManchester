@@ -1,4 +1,6 @@
-﻿using Kitbag.HackWebApplication.Models;
+﻿using Kitbag.Database;
+using Kitbag.Domain;
+using Kitbag.HackWebApplication.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +19,16 @@ namespace Kitbag.HackWebApplication.Controllers
 
         public ActionResult View(int id)
         {
+            var personRepository = new Repository<Person>(new CwonData());
+
+            var person = personRepository.Get(id);
+
             var model = new PersonViewModel();
-            model.Name = "Steve McLovin";
+            model.Name = string.Format("{0} {1}", person.FirstName, person.LastName);
+            model.Group = "Marketing";
+            model.Email = "myamazingemail@email.com";
+            model.Telephone = "0000-000-0000";
+            model.Skype = "MyAmazingSkypeName";
 
             return View(model);
         }
