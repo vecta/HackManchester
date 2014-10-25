@@ -46,9 +46,9 @@ namespace Kitbag.HackWebApplication
                consumerKey: "woeIYdoRtG9vdEnWOyFkjhTZr",
                consumerSecret: "gXFtArhKyy8kxbcXYrL08A6EnpbK4jkS3Mk7vpOCyVWUtVdS36");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "293719184159058",
+               appSecret: "8714cdba6a6e356952cdd8e9201d1fed");
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
