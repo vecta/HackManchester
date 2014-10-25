@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Kitbag.Database
 {
@@ -15,7 +17,8 @@ namespace Kitbag.Database
 
         public void Create(T item)
         {
-            Update(item);
+            _dbContext.Set<T>().Add(item);
+            _dbContext.SaveChanges();
         }
 
         public void Update(T item)
@@ -32,6 +35,16 @@ namespace Kitbag.Database
         public IList<T> GetAll()
         {
             return _dbContext.Set<T>().ToList();
+        }
+
+        //public IEnumerable<T> GetAll()
+        //{
+        //    return _dbContext.Set<T>().ToList();
+        //}
+
+        public IEnumerable<T> GetMany(Expression<Func<T, bool>> where)
+        {
+            return _dbContext.Set<T>().Where(where).ToList();
         }
     }
 }

@@ -58,9 +58,8 @@ namespace Kitbag.Database
 
             modelBuilder.Entity<Group>()
                 .HasMany(e => e.People)
-                .WithRequired(e => e.Group)
-                .HasForeignKey(e => e.OrganisationId)
-                .WillCascadeOnDelete(false);
+                .WithOptional(e => e.Group)
+                .HasForeignKey(e => e.OrganisationId);
 
             modelBuilder.Entity<Group>()
                 .HasMany(e => e.Status)
@@ -82,11 +81,6 @@ namespace Kitbag.Database
                 .HasMany(e => e.Status)
                 .WithMany(e => e.People)
                 .Map(m => m.ToTable("PersonStatus").MapLeftKey("PersonId").MapRightKey("StatusId"));
-
-            modelBuilder.Entity<SocialMediaSource>()
-                .HasMany(e => e.People)
-                .WithRequired(e => e.SocialMediaSource)
-                .WillCascadeOnDelete(false);
         }
     }
 }

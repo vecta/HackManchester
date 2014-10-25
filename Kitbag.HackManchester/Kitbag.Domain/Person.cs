@@ -9,10 +9,10 @@ namespace Kitbag.Domain
     {
         public Person()
         {
-            Groups = new HashSet<Group>();
-            CurrentlyWorkingOns = new HashSet<CurrentlyWorkingOn>();
-            Groups1 = new HashSet<Group>();
-            Status = new HashSet<Status>();
+            //Groups = new HashSet<Group>();
+            //CurrentlyWorkingOns = new HashSet<CurrentlyWorkingOn>();
+            //Groups1 = new HashSet<Group>();
+            //Status = new HashSet<Status>();
         }
 
         public int Id { get; set; }
@@ -21,17 +21,15 @@ namespace Kitbag.Domain
         [StringLength(256)]
         public string Email { get; set; }
 
-        public int SocialMediaSourceId { get; set; }
+        public int? SocialMediaSourceId { get; set; }
 
-        [Required]
         [StringLength(256)]
         public string FirstName { get; set; }
 
-        [Required]
         [StringLength(256)]
         public string LastName { get; set; }
 
-        public int OrganisationId { get; set; }
+        public int? OrganisationId { get; set; }
 
         public virtual ICollection<Group> Groups { get; set; }
 

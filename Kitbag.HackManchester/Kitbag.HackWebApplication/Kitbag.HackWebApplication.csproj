@@ -270,6 +270,16 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kitbag.Database\Kitbag.Database.csproj">
+      <Project>{567241b3-4415-4eda-9c92-f82ba34015c2}</Project>
+      <Name>Kitbag.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kitbag.Domain\Kitbag.Domain.csproj">
+      <Project>{a37c4658-fc5c-4bee-b4cd-8fb7c97df9de}</Project>
+      <Name>Kitbag.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
