@@ -8,7 +8,7 @@ namespace Kitbag.Database
 {
     public class Repository<T> where T : class 
     {
-        private readonly CwonData _dbContext;
+        protected readonly CwonData _dbContext;
 
         public Repository(CwonData dbContext)
         {
