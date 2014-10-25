@@ -243,6 +243,7 @@
     <Content Include="Views\Shared\_ProfileSmall.cshtml" />
     <Content Include="Views\Shared\_FeedStatus.cshtml" />
     <Content Include="Views\Shared\_Feed.cshtml" />
+    <Content Include="Views\Shared\_UpdateStatus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

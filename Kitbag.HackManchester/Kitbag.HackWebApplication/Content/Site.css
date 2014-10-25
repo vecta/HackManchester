@@ -30,6 +30,11 @@ textarea {
     float:left;
 }
 
+#feed textarea.new-status {
+    max-width:none !important;
+    width:100% !important;
+}
+
 #feed .feed-status {
     clear:both;
     margin-bottom:20px;
