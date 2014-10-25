@@ -15,12 +15,9 @@ namespace Kitbag.HackWebApplication.ExtensionMethods
         /// <param name="emailId">The email id.</param>
         /// <param name="imgSize">Size of the img.</param>
         /// <returns></returns>
-        public static MvcHtmlString RenderGravatarImage(this HtmlHelper helper, string emailId, int imgSize)
+        public static MvcHtmlString RenderGravatarImage(this HtmlHelper helper, string email, int imgSize)
         {
-            // Convert emailID to lower-case
-            emailId = emailId.ToLower();
-
-            var hash = FormsAuthentication.HashPasswordForStoringInConfigFile(emailId, "MD5").ToLower();
+            var hash = FormsAuthentication.HashPasswordForStoringInConfigFile(email.ToLower(), "MD5").ToLower();
 
             // build Gravatar Image URL
             var imageUrl = string.Format(@"<img src=""http://www.gravatar.com/avatar/{0}?s={1}&d=mm&r=g"" />", hash, imgSize);

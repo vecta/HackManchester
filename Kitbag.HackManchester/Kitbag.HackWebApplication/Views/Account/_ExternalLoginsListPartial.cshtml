@@ -18,7 +18,7 @@
         <div id="socialLoginList" class="btn-group-vertical">
             @foreach (var p in loginProviders)
             {
-                <button type="submit" class="btn btn-lg" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account"><img src="Content/images/social/@(p.AuthenticationType).png" class="SocialIcon" />Sign in with @p.AuthenticationType</button>
+                <button type="submit" class="btn btn-lg" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account"><img src="/Content/images/social/@(p.AuthenticationType).png" class="SocialIcon" />Sign in with @p.AuthenticationType</button>
             }
         </div>
     }

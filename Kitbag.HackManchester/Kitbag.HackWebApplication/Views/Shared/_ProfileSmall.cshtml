@@ -1,7 +1,7 @@
 ﻿<div id="profileSmall">
 
     <div id="image">
-        @Html.RenderGravatarImage("lee.englestone@gmail.com", 50)
+        @Html.RenderGravatarImage("lee.englestone@gmail.com", 100)
     </div>
 
     <div id="name-and-group">
@@ -10,8 +10,18 @@
             @Html.ActionLink("Lee Englestone", "view", "person", new { id = 1 }, null)
         </div>
 
+        <div id="job-title">
+            Quality Control Manager
+        </div>
+
         <div id="group">
-            Marketting
+            @Html.ActionLink("Marketting", "view", "group", new { id = 1 }, null)
+        </div>
+
+        <div id="group">
+            @Html.ActionLink("Animal Threads", "view", "group", new { id = 2, org="true" }, null)
+
+ 
         </div>
     </div>
 </div>

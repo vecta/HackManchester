@@ -166,6 +166,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -177,14 +178,17 @@
     <Compile Include="Hubs\StatusHub.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DashboardViewModel.cs" />
+    <Compile Include="Models\GroupViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="OwinStartup.cs" />
+    <Compile Include="Models\PersonViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\headshot.jpg" />
     <Content Include="Content\images\social\Facebook.png" />
     <Content Include="Content\images\social\Google.png" />
     <Content Include="Content\images\social\Twitter.png" />
@@ -247,11 +251,17 @@
     <Content Include="Views\Group\Index.cshtml" />
     <Content Include="Views\Shared\_ProfileSmall.cshtml" />
     <Content Include="Views\Shared\_FeedStatus.cshtml" />
-    <Content Include="Views\Shared\_Feed.cshtml" />
+    <Content Include="Views\Shared\_CentralFeed.cshtml" />
     <Content Include="Views\Shared\_UpdateStatus.cshtml" />
+    <Content Include="Views\Group\View.cshtml" />
+    <Content Include="Views\Shared\_Groups.cshtml" />
+    <Content Include="Views\Shared\_People.cshtml" />
+    <Content Include="Views\Person\View.cshtml" />
+    <Content Include="Views\Shared\_RightFeed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

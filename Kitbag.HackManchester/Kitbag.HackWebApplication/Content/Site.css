@@ -56,3 +56,48 @@ textarea {
 #feed .user-name {
 }
 
+#groups .group {
+    background-color:#ccc;
+    border:1px solid #bbb;
+    border-radius:5px;
+    float:left; 
+    height:150px;
+    text-align:center;
+    width:150px;
+    margin:10px;
+
+}
+
+#people .person {
+    border:1px solid #ccc;
+    float:left;
+    margin:10px;
+    text-align:center;
+}
+
+    #people .person img {
+        margin:3px;
+    }
+
+    #people .person .name {
+        font-weight:bold;
+    }
+
+    #people .person .working-on-label {
+    }
+
+    #people .person .working-on {
+        font-style:italic;
+    }
+
+footer p {
+    text-align:center;
+}
+
+h2.site-title {
+    text-align:center;
+}
+
+h3.site-sub-title {
+    text-align:center;
+}

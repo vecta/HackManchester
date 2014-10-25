@@ -1,0 +1,17 @@
+﻿@model Kitbag.HackWebApplication.Models.GroupViewModel
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>Badger Trousers</h2>
+
+@if (Model.IsOrganisation)
+{
+    @Html.Partial("_Groups")
+}
+else
+{
+    @Html.Partial("_People")
+}
+<div class="clearfix"></div>
