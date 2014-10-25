@@ -159,6 +159,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -235,9 +236,12 @@
     <Content Include="Views\Shared\_FeedStatus.cshtml" />
     <Content Include="Views\Shared\_Feed.cshtml" />
     <Content Include="Views\Shared\_UpdateStatus.cshtml" />
+    <Content Include="Views\Group\View.cshtml" />
+    <Content Include="Views\Shared\_Groups.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

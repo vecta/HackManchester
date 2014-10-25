@@ -6,15 +6,10 @@ using System.Web.Mvc;
 
 namespace Kitbag.HackWebApplication.Controllers
 {
-    public class GroupController : Controller
+    public class AdminController : Controller
     {
-        // GET: Group
+        // GET: Admin
         public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult View(int id)
         {
             return View();
         }
