@@ -9,7 +9,7 @@ namespace Kitbag.Database
     {
         public PersonRepository(CwonData dbContext) : base(dbContext) { }
 
-        public IEnumerable<Person> GetByGroup(int groupId) { return _dbContext.People.Where(x => x.Id == groupId).ToList(); }
+        //public IEnumerable<Person> GetByGroup(int groupId) { return _dbContext.People.Where(x => x == groupId).ToList(); }
 
         public Person GetByEmail(string email)
         {
@@ -17,8 +17,8 @@ namespace Kitbag.Database
         }
         public IList<Person> GetByGroup(int groupId)
         {
-            
-            var people = base._dbContext.Groups.FirstOrDefault(x => x.Id == groupId).People1.ToList();
+
+            var people = base._dbContext.Groups.Include("People1").FirstOrDefault(x => x.Id == groupId).People1.ToList();
 
 
             return people;
