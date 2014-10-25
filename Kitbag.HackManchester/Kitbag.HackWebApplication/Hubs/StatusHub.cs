@@ -18,7 +18,7 @@ namespace Kitbag.HackWebApplication.Hubs
             // build Gravatar Image URL
             var imageUrl = string.Format(@"http://www.gravatar.com/avatar/{0}?s={1}&d=mm&r=g", hash, 50);
             // Call the broadcastMessage method to update clients.
-            Clients.All.broadcastMessage(message, email, imageUrl, DateTime.Now.ToShortTimeString());
+            Clients.All.broadcastMessage(HttpUtility.HtmlEncode(message), email, imageUrl, DateTime.Now.ToShortTimeString());
         }
     }
 }
