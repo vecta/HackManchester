@@ -1,28 +1,29 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using Kitbag.Database;
 using Kitbag.Domain;
 using Kitbag.HackWebApplication.Models;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace Kitbag.HackWebApplication.Controllers
 {
     public class HomeController : Controller
     {
         [Authorize]
-        public ActionResult Index()
+        public ActionResult Index() 
         {
             var context = new CwonData();
-            var model = new HomeViewModel();
             var statusRepository = new Repository<Status>(context);
             var personRepository = new PersonRepository(context);
 
-            model.Statuses = statusRepository.GetAll();
-            model.PersonProfile = personRepository.GetByEmail(User.Identity.Name);
+            var model = new HomeViewModel
+            {
+                Statuses = statusRepository.GetAll().Select(status => new DisplayStatus(status)).ToList(),
+                PersonProfile = personRepository.GetByEmail(User.Identity.Name),
+            };
             model.UserGroups = model.PersonProfile.Groups1;
 
-            model.Group = new Group() { Name = "Development", Id = 4 };
-            model.Organisation = new Group() { Name = "Kitbag", Id = 3 };
+            model.Group = new Group {Name = "Development", Id = 4};
+            model.Organisation = new Group {Name = "Kitbag", Id = 3};
 
             return View(model);
         }
