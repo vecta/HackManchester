@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Linq;
 using System.Web;
-using Kitbag.Domain;
+using Kitbag.Domain.BusinessEntities;
 
 namespace Kitbag.HackWebApplication.Models
 {
     public class DisplayStatus
     {
-        public DisplayStatus(Status status)
+        public DisplayStatus(IStatusUpdate status)
         {
+            Type = status.Type;
             PersonId = GetPersonId(status);
             Name = GetDisplayName(status);
             Email = GetEmail(status);
@@ -17,33 +17,31 @@ namespace Kitbag.HackWebApplication.Models
             PrettyDate = GetPrettyDate(status.CreatedDate);
         }
 
-        public int? PersonId { get; set; }
-        public string Message { get; set; }
-        public string TimeStamp { get; set; }
-        public string Email { get; set; }
-        public string Name { get; set; }
-        public string PrettyDate { get; set; }
+        public int? PersonId { get; private set; }
+        public string Type { get; private set; }
+        public string Message { get; private set; }
+        public string TimeStamp { get; private set; }
+        public string Email { get; private set; }
+        public string Name { get; private set; }
+        public string PrettyDate { get; private set; }
 
-        private string GetMessage(Status status) { return HttpUtility.HtmlEncode(status.Status1); }
+        private string GetMessage(IStatusUpdate status) { return HttpUtility.HtmlEncode(status.Message); }
 
-        private string GetTimeStamp(Status status)
+        private string GetTimeStamp(IStatusUpdate status) { return status.CreatedDate.ToString(status.CreatedDate.Date != DateTime.Today ? "d MMM yyyy h:mmtt" : "h:mm tt"); }
+
+        private int GetPersonId(IStatusUpdate status) { return status.Person != null ? status.Person.Id : 0; }
+
+        private string GetEmail(IStatusUpdate status) { return status.Person != null ? status.Person.Email : string.Empty; }
+
+        private string GetDisplayName(IStatusUpdate status)
         {
-            return status.CreatedDate.ToString(status.CreatedDate.Date != DateTime.Today ? "d MMM yyyy h:mmtt" : "h:mm tt");
-        }
+            if (status.Group != null)
+                return status.Group.Name;
 
-        private int GetPersonId(Status status) { return status.People.Any() ? status.People.First().Id : 0; }
-
-        private string GetEmail(Status status) { return status.People.Any() ? status.People.First().Email : string.Empty; }
-
-        private string GetDisplayName(Status status)
-        {
-            if (status.Groups.Any())
-                return status.Groups.First().Name;
-
-            if (!status.People.Any())
+            if (status.Person == null)
                 return string.Empty;
 
-            var person = status.People.First();
+            var person = status.Person;
             return String.IsNullOrEmpty(person.FirstName) ? person.Email : string.Format("{0} {1}", person.FirstName, person.LastName);
         }
 
@@ -51,9 +49,9 @@ namespace Kitbag.HackWebApplication.Models
         {
             var s = DateTime.Now.Subtract(d);
 
-            var dayDiff = (int)s.TotalDays;
+            var dayDiff = (int) s.TotalDays;
 
-            var secDiff = (int)s.TotalSeconds;
+            var secDiff = (int) s.TotalSeconds;
 
             if (dayDiff < 0 || dayDiff >= 31)
             {
@@ -72,8 +70,7 @@ namespace Kitbag.HackWebApplication.Models
                 }
                 if (secDiff < 3600)
                 {
-                    return string.Format("{0} minutes ago",
-                        Math.Floor((double)secDiff / 60));
+                    return string.Format("{0} minutes ago", Math.Floor((double) secDiff/60));
                 }
                 if (secDiff < 7200)
                 {
@@ -81,8 +78,7 @@ namespace Kitbag.HackWebApplication.Models
                 }
                 if (secDiff < 86400)
                 {
-                    return string.Format("{0} hours ago",
-                        Math.Floor((double)secDiff / 3600));
+                    return string.Format("{0} hours ago", Math.Floor((double) secDiff/3600));
                 }
             }
             if (dayDiff == 1)
@@ -91,13 +87,11 @@ namespace Kitbag.HackWebApplication.Models
             }
             if (dayDiff < 7)
             {
-                return string.Format("{0} days ago",
-                dayDiff);
+                return string.Format("{0} days ago", dayDiff);
             }
             if (dayDiff < 31)
             {
-                return string.Format("{0} weeks ago",
-                Math.Ceiling((double)dayDiff / 7));
+                return string.Format("{0} weeks ago", Math.Ceiling((double) dayDiff/7));
             }
             return null;
         }

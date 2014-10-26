@@ -26,7 +26,7 @@ namespace Kitbag.HackWebApplication.Hubs
             var hash = FormsAuthentication.HashPasswordForStoringInConfigFile(displayStatus.Email.ToLower(), "MD5").ToLower();
 
             var imageUrl = string.Format(@"http://www.gravatar.com/avatar/{0}?s={1}&d=mm&r=g", hash, 50);
-            Clients.All.broadcastMessage(ParseMessage(displayStatus.Message), displayStatus.Name, imageUrl,displayStatus.TimeStamp);
+            Clients.All.broadcastMessage(ParseMessage(displayStatus.Message), displayStatus.Name, imageUrl,displayStatus.TimeStamp, displayStatus.Type);
         }
 
         private static string ParseMessage(string message) { return HttpUtility.HtmlEncode(message).Replace("\n", "</br>"); }

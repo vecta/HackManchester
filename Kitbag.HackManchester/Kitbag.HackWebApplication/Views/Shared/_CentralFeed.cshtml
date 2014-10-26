@@ -7,24 +7,24 @@
     
     @foreach(var status in Model)
     {
-        <div class="feed-status">
+        <div class="feed-status @status.Type">
 
             <div class="user-image">
                 @Html.RenderGravatarImage(status.Email, 50)
             </div>
             <div class="post">
                 <div class="user-name">
-                    @Html.ActionLink(status.Name, "view", "person", new { id = status.PersonId }, null)
+                    @Html.ActionLink(status.Name, "view", "person", new { id = 1 }, null)
                 </div>
                 <div class="message">
                     @status.Message
                 </div>
                 <div class="when">
-                    @status.TimeStamp
+                    @status.PrettyDate
                 </div>
-            </div>
+            </div><div style="clear:both"></div>
         </div>
-        <hr style="clear:both" />
+        
     }
 
 </div>

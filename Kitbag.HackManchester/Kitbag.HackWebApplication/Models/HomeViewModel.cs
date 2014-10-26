@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Kitbag.Domain;
+using Kitbag.Domain.BusinessEntities;
 using Kitbag.HackWebApplication.Controllers;
 
 namespace Kitbag.HackWebApplication.Models
@@ -13,6 +14,6 @@ namespace Kitbag.HackWebApplication.Models
         public Group Group { get; set; }
         public Group Organisation { get; set; }
 
-        public CurrentlyWorkingOn CurrentlyWorkingOn { get; set; }
+        public IStatusUpdate CurrentlyWorkingOn { get; set; }
     }
 }

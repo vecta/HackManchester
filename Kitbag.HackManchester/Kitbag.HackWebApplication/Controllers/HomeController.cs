@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using Kitbag.Database;
 using Kitbag.Domain;
@@ -13,7 +14,7 @@ namespace Kitbag.HackWebApplication.Controllers
         public ActionResult Index() 
         {
             var context = new CwonData();
-            var statusRepository = new StatusRepository(context);
+            
             var personRepository = new PersonRepository(context);
             var currentlyWorkingOnRepository = new CurrentlyWorkingOnRepository(context);
 
@@ -21,15 +22,15 @@ namespace Kitbag.HackWebApplication.Controllers
 
             var model = new HomeViewModel
             {
-                Statuses = statusRepository.GetLatest(20).Select(status => new DisplayStatus(status)).ToList(),
+                Statuses = GetLatestStatuses(context),
                 PersonProfile = personRepository.GetByEmail(User.Identity.Name),
-                CurrentlyWorkingOn = currentlyWorkingOn == null ? new CurrentlyWorkingOn() : currentlyWorkingOn
+                CurrentlyWorkingOn = currentlyWorkingOn ?? new CurrentlyWorkingOn()
             };
-
-            if(String.IsNullOrEmpty(model.CurrentlyWorkingOn.CurrentlyWorkingOn1 ))
-            {
-                model.CurrentlyWorkingOn.CurrentlyWorkingOn1 = "What exactly?";
-            }
+//
+//            if(String.IsNullOrEmpty(model.CurrentlyWorkingOn.Message ))
+//            {
+//        //        model.CurrentlyWorkingOn.Message = "What exactly?";
+//            }
 
             model.UserGroups = model.PersonProfile.Groups1;
 
@@ -37,6 +38,15 @@ namespace Kitbag.HackWebApplication.Controllers
             model.Organisation = new Group {Name = "Kitbag", Id = 3};
 
             return View(model);
+        }
+
+        private static List<DisplayStatus> GetLatestStatuses(CwonData context)
+        {
+            var statusRepository = new StatusRepository(context);
+            var workingOnRepository = new CurrentlyWorkingOnRepository(context);
+            var updates = statusRepository.GetLatest(20);
+            updates = updates.Concat(workingOnRepository.GetLatest(20));
+            return updates.OrderByDescending(update => update.CreatedDate).Select(statusUpdate => new DisplayStatus(statusUpdate)).ToList();
         }
 
         public ActionResult About()

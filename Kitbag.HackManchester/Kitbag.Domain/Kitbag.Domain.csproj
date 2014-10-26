@@ -44,6 +44,9 @@
     <Compile Include="AspNetUser.cs" />
     <Compile Include="AspNetUserClaim.cs" />
     <Compile Include="AspNetUserLogin.cs" />
+    <Compile Include="BusinessEntities\Status.cs" />
+    <Compile Include="BusinessEntities\CurrentlyWorkingOn.cs" />
+    <Compile Include="BusinessEntities\IStatusUpdate.cs" />
     <Compile Include="CurrentlyWorkingOn.cs" />
     <Compile Include="Group.cs" />
     <Compile Include="Person.cs" />

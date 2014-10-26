@@ -179,7 +179,6 @@
     <Compile Include="Hubs\CurrentlyWorkingOnHub.cs" />
     <Compile Include="Hubs\StatusHub.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\DisplayCurrentlyWorkingOn.cs" />
     <Compile Include="Models\DisplayStatus.cs" />
     <Compile Include="Models\GroupViewModel.cs" />
     <Compile Include="Models\HierarchyViewModel.cs" />

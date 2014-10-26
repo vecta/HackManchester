@@ -160,6 +160,9 @@ span#currently-working-on-status {
     font-weight:bold;
 }
 
-#currently-working-on-edit {
+#feed .CurrentlyWorkingOn { background-color: #ebebe6; padding: 10px;}
+#feed .Status { background-color: #e6e9eb;padding: 10px;}
+
+/*#currently-working-on-edit {
     display:none;
-}
+}*/

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Kitbag.Domain;
+using Kitbag.Domain.BusinessEntities;
 
 namespace Kitbag.Database
 {
@@ -8,6 +9,6 @@ namespace Kitbag.Database
     {
         public StatusRepository(CwonData dbContext) : base(dbContext) {}
 
-        public IEnumerable<Status> GetLatest(int count) { return _dbContext.Status.OrderByDescending(status => status.CreatedDate).Take(count).ToList(); }
+        public IEnumerable<IStatusUpdate> GetLatest(int count) { return _dbContext.Status.OrderByDescending(status => status.CreatedDate).Take(count).ToList(); }
     }
 }
