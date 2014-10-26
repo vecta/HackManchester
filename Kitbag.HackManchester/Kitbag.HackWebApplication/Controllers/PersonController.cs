@@ -31,9 +31,13 @@ namespace Kitbag.HackWebApplication.Controllers
                 model.Telephone = "0000-000-0000";
                 model.Skype = "MyAmazingSkypeName";
                 model.Groups = person.Groups1.ToList();
-                model.Status = person.Status.ToList();
+                model.Status =
+                    person.Status.Select(individualStatus => new DisplayStatus(individualStatus))
+                                 .ToList();
 
-                var currentlyWorkingOn = person.CurrentlyWorkingOns.OrderByDescending(m => m.Id).FirstOrDefault();
+                var currentlyWorkingOn = person.CurrentlyWorkingOns
+                    .OrderByDescending(m => m.Id)
+                    .FirstOrDefault();
                 
                 if (currentlyWorkingOn != null)
                     model.CurrentlyWorkingOn = currentlyWorkingOn.CurrentlyWorkingOn1;

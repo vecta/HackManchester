@@ -22,13 +22,15 @@
                 <div class="email">Email : @Model.Email</div>
                 <div class="telephone">Telephone : @Model.Telephone</div>
                 <div class="skype">Skype : @Model.Skype</div>
-                <div class="currently-working-on">Currently Working On : @Model.CurrentlyWorkingOn</div>
             </div>
 
             @Html.Partial("_ListedGroups", Model.Groups)
         </div>
     </div>
     <div class="col-md-9">
+        <h1 class="c-won-Font">
+            <em>currently</em><strong>working</strong><em>on..</em> @Model.CurrentlyWorkingOn
+        </h1>
         <h2>Status</h2>
         @Html.Partial("_CentralFeed", Model.Status)
     </div>
