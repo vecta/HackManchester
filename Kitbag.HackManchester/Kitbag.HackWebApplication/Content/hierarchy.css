@@ -83,10 +83,11 @@
         }
 
         .tree li a {
+            background:#666;
             border: 1px solid #ccc;
             padding: 5px 10px;
             text-decoration: none;
-            color: #666;
+            color: #fff;
             font-family: arial, verdana, tahoma;
             font-size: 11px;
             display: inline-block;
@@ -102,6 +103,7 @@
             /*We will apply the hover effect the the lineage of the element also*/
             .tree li a:hover, .tree li a:hover + ul li a {
                 background: #c8e4f8;
+                /*background:#00ffcc;*/
                 color: #000;
                 border: 1px solid #94a0b4;
             }
