@@ -25,13 +25,15 @@
             </div>
 
             @Html.Partial("_ListedGroups", Model.Groups)
+
+            @Html.Partial("_Hierarchy", new Kitbag.HackWebApplication.Models.HierarchyViewModel())
         </div>
     </div>
     <div class="col-md-9">
         <h1 class="c-won-Font">
             <em>currently</em><strong>working</strong><em>on..</em> @Model.CurrentlyWorkingOn
         </h1>
-        <h2>Status</h2>
+        <h2>Status Feed</h2>
         @Html.Partial("_CentralFeed", Model.Status)
     </div>
 </div>

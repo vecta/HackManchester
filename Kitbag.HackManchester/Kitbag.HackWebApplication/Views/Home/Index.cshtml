@@ -34,9 +34,6 @@
 
         </div>
 
-
-        @*<h2>My Feed</h2>*@
-
         <div>
             @Html.Partial("_UpdateStatus")
             @Html.Partial("_CentralFeed", Model.Statuses)
@@ -45,7 +42,8 @@
 
     </div>
     <div class="col-md-3">
-        <h2>Other stuff</h2>
+        <h2>Upcoming appointments..</h2>
+        @Html.Partial("_Appointments")
     </div>
 </div>
 

@@ -4,16 +4,23 @@
     @foreach(var individualStatus in Model)
     {
         <div class="feed-entry">
-            <div class="name">
-                @Html.ActionLink(individualStatus.Name, "view", "person", new { id = individualStatus.PersonId }, null)
+            <div class="image" style="float:left">
+                @Html.RenderGravatarImage(individualStatus.Email, 50)
             </div>
-            <div class="message">
-                @individualStatus.Message
+            <div style="float:left; margin-left:10px; max-width:200px;">
+                <div class="name">
+                    @Html.ActionLink(individualStatus.Name, "view", "person", new { id = individualStatus.PersonId }, null)
+                </div>
+                <div class="message">
+                    @individualStatus.Message
+                </div>
+                <div class="period">
+                    @individualStatus.PrettyDate
+                </div>
             </div>
-            <div class="period">
-                @individualStatus.PrettyDate
-            </div>
+            <div class="clearfix"></div>
         </div>
+        
     }
 
 </div>

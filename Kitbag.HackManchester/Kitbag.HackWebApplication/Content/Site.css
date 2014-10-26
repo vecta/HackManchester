@@ -130,6 +130,7 @@ h3.site-sub-title {
 
     #feed-right .feed-entry {
         border-bottom: 1px solid #ccc;
+        margin:5px 0 5px 0;
     }
 
         #feed-right .feed-entry .period {

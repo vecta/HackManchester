@@ -1,9 +1,43 @@
 ﻿@model Kitbag.HackWebApplication.Models.HierarchyViewModel
 
-@*@foreach (var person in Model.People)
-{
-    foreach (var person2 in person.Reports)
-    {
-        
-    }
-}*@
+<link href="~/Content/hierarchy.css" rel="stylesheet" type="text/css" />
+<div class="tree">
+    <ul>
+        <li>
+            <a href="/person/view/17">Andy Anson</a>
+            <ul>
+                <li>
+                    <a href="/person/view/11">Paul Joseph</a>
+                    <ul>
+                        <li>
+                            <a href="/person/view/10">Simon Rowe</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Child</a>
+                    <ul>
+                        <li><a href="#">Grand Child</a></li>
+                        <li>
+                            <a href="#">Grand Child</a>
+                            <ul>
+                                <li>
+                                    <a href="#">Great Grand Child</a>
+                                </li>
+                                <li>
+                                    <a href="#">Great Grand Child</a>
+                                </li>
+                                <li>
+                                    <a href="#">Great Grand Child</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Grand Child</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="clearfix"></div>
