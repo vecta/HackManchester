@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Kitbag.Database;
 using Kitbag.Domain;
 using Kitbag.HackWebApplication.Models;
+using System;
 
 namespace Kitbag.HackWebApplication.Controllers
 {
@@ -24,6 +25,12 @@ namespace Kitbag.HackWebApplication.Controllers
                 PersonProfile = personRepository.GetByEmail(User.Identity.Name),
                 CurrentlyWorkingOn = currentlyWorkingOn == null ? new CurrentlyWorkingOn() : currentlyWorkingOn
             };
+
+            if(String.IsNullOrEmpty(model.CurrentlyWorkingOn.CurrentlyWorkingOn1 ))
+            {
+                model.CurrentlyWorkingOn.CurrentlyWorkingOn1 = "What exactly?";
+            }
+
             model.UserGroups = model.PersonProfile.Groups1;
 
             model.Group = new Group {Name = "Development", Id = 4};
