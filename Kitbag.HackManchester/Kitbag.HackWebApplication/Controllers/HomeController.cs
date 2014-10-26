@@ -2,6 +2,8 @@
 using Kitbag.Database;
 using Kitbag.Domain;
 using Kitbag.HackWebApplication.Models;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Kitbag.HackWebApplication.Controllers
 {
@@ -10,9 +12,23 @@ namespace Kitbag.HackWebApplication.Controllers
         [Authorize]
         public ActionResult Index()
         {
+            var context = new CwonData();
             var model = new HomeViewModel();
-            var repository = new Repository<Status>(new CwonData());
-            model.Statuses = repository.GetAll();
+            var statusRepository = new Repository<Status>(context);
+            var personRepository = new PersonRepository(context);
+            
+            model.Statuses = statusRepository.GetAll();
+            model.PersonProfile = personRepository.GetByEmail(User.Identity.Name);
+            model.UserGroups = model.PersonProfile.Groups1;
+
+            model.Group = new Group() { Name = "Development", Id = 4 };
+            model.Organisation = new Group() { Name = "Kitbag", Id = 3 };
+
+
+            //model.Group = model.UserGroups.FirstOrDefault();
+            //model.Group = model.PersonProfile.Groups1..OfType<YourType>().FirstOrDefault();
+            //model.Group = ((IList<Group>)model.PersonProfile.Groups1).
+
             return View(model);
         }
 

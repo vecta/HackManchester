@@ -1,4 +1,8 @@
-﻿<div id="profileSmall">
+﻿@model Kitbag.HackWebApplication.Models.HomeViewModel
+@{
+    var group = Model.UserGroups.FirstOrDefault();
+}
+<div id="profileSmall">
 
     <div id="image">
         @Html.RenderGravatarImage(HttpContext.Current.User.Identity.Name, 100)
@@ -7,7 +11,7 @@
     <div id="name-and-group">
 
         <div id="name">
-            @Html.ActionLink("Lee Englestone", "view", "person", new { id = 1 }, null)
+            @Html.ActionLink(Model.PersonProfile.FirstName + " " + Model.PersonProfile.FirstName, "view", "person", new { id = Model.PersonProfile.Id }, null)
         </div>
 
         <div id="job-title">
@@ -15,11 +19,11 @@
         </div>
 
         <div id="group">
-            @Html.ActionLink("Marketting", "view", "group", new { id = 1 }, null)
+            @Html.ActionLink(Model.Group.Name, "view", "group", new { id = group.Id }, null)
         </div>
 
         <div id="group">
-            @Html.ActionLink("Animal Threads", "view", "group", new { id = 2, org="true" }, null)
+            @Html.ActionLink(Model.Organisation.Name, "view", "group", new { id = Model.Organisation.Id, org = "true" }, null)
 
  
         </div>
