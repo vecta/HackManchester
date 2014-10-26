@@ -361,7 +361,7 @@ namespace Kitbag.HackWebApplication.Controllers
 
                 if (existingUserRecord == null)
                 {
-                    var newUser = new Person { Email = user.Email };
+                    var newUser = GetNewUser(user, loginInfo);
                     personRepository.Create(newUser);
                 }
 
@@ -374,6 +374,15 @@ namespace Kitbag.HackWebApplication.Controllers
                 ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
                 return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
             }
+        }
+
+        private static Person GetNewUser(ApplicationUser user, ExternalLoginInfo loginInfo)
+        {
+            var newUser = new Person {Email = user.Email};
+            var nameList = loginInfo.ExternalIdentity.Name.Split(' ').ToArray();
+            if (nameList.Length > 0) { newUser.FirstName = nameList.FirstOrDefault(); }
+            if (nameList.Length >= 2) { newUser.LastName = nameList.LastOrDefault(); }
+            return newUser;
         }
 
         //
