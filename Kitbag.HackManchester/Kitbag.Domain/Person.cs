@@ -17,7 +17,7 @@ namespace Kitbag.Domain
 
         public int Id { get; set; }
 
-        public int ManagerId { get; set; }
+        public int? ManagerId { get; set; }
 
         [Required]
         [StringLength(256)]
