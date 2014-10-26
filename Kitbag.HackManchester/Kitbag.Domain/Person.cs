@@ -36,6 +36,9 @@ namespace Kitbag.Domain
         [StringLength(256)]
         public string JobTitle { get; set; }
 
+        [StringLength(20)]
+        public string PhoneNumber { get; set; }
+
         public int? OrganisationId { get; set; }
 
         public virtual ICollection<Group> Groups { get; set; }

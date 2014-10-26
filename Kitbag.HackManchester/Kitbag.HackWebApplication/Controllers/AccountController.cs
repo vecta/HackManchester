@@ -382,6 +382,9 @@ namespace Kitbag.HackWebApplication.Controllers
             var nameList = loginInfo.ExternalIdentity.Name.Split(' ').ToArray();
             if (nameList.Length > 0) { newUser.FirstName = nameList.FirstOrDefault(); }
             if (nameList.Length >= 2) { newUser.LastName = nameList.LastOrDefault(); }
+            newUser.OrganisationId = 3;
+            newUser.PhoneNumber = user.PhoneNumber;
+
             return newUser;
         }
 
