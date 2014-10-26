@@ -35,6 +35,14 @@
         </h1>
         <h2>Status Feed</h2>
         @Html.Partial("_CentralFeed", Model.Status)
+
+        @if (!Model.Status.Any())
+        {
+            <div class="alert alert-warning">
+                <p>User has no status updates yet</p>
+            </div>
+        }
+
     </div>
 </div>
 

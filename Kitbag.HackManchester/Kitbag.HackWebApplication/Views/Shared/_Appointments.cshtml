@@ -1,1 +1,17 @@
-﻿Appointments
+﻿@{
+    var startTime = new DateTime(2014, 10, 26, 9, 0, 0);
+}
+
+<div id="appointments">
+    @for (int x = 0; x < 10; x++)
+    {
+        
+        
+        <div class="appointment">
+            <div class="title">Eat Bacon</div>
+            <div class="time">@startTime.ToString("HHmm") Sunday 26th October</div>
+        </div>
+        
+        startTime = startTime.AddHours(1);
+    }
+</div>

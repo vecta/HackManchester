@@ -26,6 +26,17 @@ namespace Kitbag.HackWebApplication.Controllers
             model.People = people;
             model.IsOrganisation = !model.Group.ParentId.HasValue;
 
+            foreach(var person in model.People)
+            {
+                if(!person.CurrentlyWorkingOns.Any())
+                {
+                    person.CurrentlyWorkingOns = new List<CurrentlyWorkingOn>
+                    {
+                        new CurrentlyWorkingOn{ CurrentlyWorkingOn1= "No idea"}
+                    };
+                }
+            }
+
             if (model.Group.ParentId.HasValue)
             {
                 var personStatus = new List<DisplayStatus>();

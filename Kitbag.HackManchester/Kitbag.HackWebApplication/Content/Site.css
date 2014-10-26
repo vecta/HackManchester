@@ -107,7 +107,6 @@ textarea {
     #people .person .working-on-label {
         font-size: 0.8em;
         font-weight: bold;
-
     }
 
     #people .person .working-on {
@@ -162,4 +161,13 @@ span#currently-working-on-status {
 
 #currently-working-on-edit {
     display:none;
+}
+
+#appointments .appointment {
+    border-bottom:1px solid #ccc;
+    margin-bottom:10px;
+}
+
+#appointments .appointment .title {
+    font-weight:bold;
 }
