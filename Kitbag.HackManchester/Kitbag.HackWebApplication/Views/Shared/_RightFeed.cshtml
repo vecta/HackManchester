@@ -1,17 +1,17 @@
-﻿
+﻿@model List<Kitbag.HackWebApplication.Models.DisplayStatus>
 <div id="feed-right">
 
-    @for (int x = 0; x < 20; x++)
+    @foreach(var individualStatus in Model)
     {
         <div class="feed-entry">
             <div class="name">
-                <a href="/person/view/1">Mike Tyson</a>
+                @Html.ActionLink(individualStatus.Name, "view", "person", new { id = individualStatus.PersonId }, null)
             </div>
             <div class="message">
-                Some entry that is slightly longer. Perhaps even this long..
+                @individualStatus.Message
             </div>
             <div class="period">
-                about 1 hour ago
+                @individualStatus.PrettyDate
             </div>
         </div>
     }

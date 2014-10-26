@@ -25,6 +25,13 @@ namespace Kitbag.Database
         public IList<Person> GetByManagerId(int managerId)
         {
             return base._dbContext.People.Where(x => x.ManagerId == managerId).ToList();
+            
+            return people;
+        }
+
+        public IList<Person> GetByOrgansation(int organisationId)
+        {
+            return _dbContext.People.Where(e => e.OrganisationId == organisationId).ToList();
         }
     }
 }

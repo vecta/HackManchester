@@ -9,18 +9,11 @@
     <div class="col-md-9">
         <h2>@Model.Group.Name</h2>
 
-        @if (Model.IsOrganisation)
-        {
-            @Html.Partial("_Groups", Model.Groups)
-        }
-        else
-        {
-            @Html.Partial("_People", Model.People)
-        }
+        @(Model.IsOrganisation ? Html.Partial("_Groups", Model.Groups) : Html.Partial("_People", Model.People))
         <div class="clearfix"></div>
     </div>
     <div class="col-md-3" style="float:left;">
         <h3>@Model.Group.Name Feed</h3>
-        @Html.Partial("_RightFeed")
+        @Html.Partial("_RightFeed", Model.PersonStatus)
     </div>
 </div>
