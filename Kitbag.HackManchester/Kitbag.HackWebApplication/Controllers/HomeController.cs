@@ -12,12 +12,12 @@ namespace Kitbag.HackWebApplication.Controllers
         public ActionResult Index() 
         {
             var context = new CwonData();
-            var statusRepository = new Repository<Status>(context);
+            var statusRepository = new StatusRepository(context);
             var personRepository = new PersonRepository(context);
 
             var model = new HomeViewModel
             {
-                Statuses = statusRepository.GetAll().Select(status => new DisplayStatus(status)).ToList(),
+                Statuses = statusRepository.GetLatest(20).Select(status => new DisplayStatus(status)).ToList(),
                 PersonProfile = personRepository.GetByEmail(User.Identity.Name),
             };
             model.UserGroups = model.PersonProfile.Groups1;
