@@ -25,6 +25,7 @@ namespace Kitbag.HackWebApplication.Controllers
 
             if (person != null)
             {
+                model.Id = person.Id;
                 model.Name = string.Format("{0} {1}", person.FirstName, person.LastName);
                 model.Group = "Marketing";
                 model.Email = person.Email;
