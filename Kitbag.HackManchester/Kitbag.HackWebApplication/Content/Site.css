@@ -3,8 +3,13 @@
     padding-bottom: 20px;
 }
 
-.c-won-Font { font-family: 'ABeeZee', sans-serif; }
-.navbar-brand{ font-size: 18pt;}
+.c-won-Font {
+    font-family: 'ABeeZee', sans-serif;
+}
+
+.navbar-brand {
+    font-size: 18pt;
+}
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -69,25 +74,25 @@ textarea {
     margin: 10px;
 }
 
-#groups .group a {
-    color:#000;
-    display:block;
-    height:150px;
-    padding-top:60px;
-    width:150px;
-}
+    #groups .group a {
+        color: #000;
+        display: block;
+        height: 150px;
+        padding-top: 60px;
+        width: 150px;
+    }
 
 #people .person {
     border: 1px solid #ccc;
     float: left;
     margin: 10px;
     text-align: center;
-    width:120px;
+    width: 120px;
 }
 
     #people .person img {
         margin: 3px;
-        width:113px;
+        width: 113px;
     }
 
     #people .person .name {
@@ -95,11 +100,11 @@ textarea {
     }
 
     #people .person .working-on-label {
-        font-size:0.8em;
+        font-size: 0.8em;
     }
 
     #people .person .working-on {
-        font-size:0.8em;
+        font-size: 0.8em;
         font-style: italic;
     }
 
@@ -128,6 +133,23 @@ h3.site-sub-title {
     }
 
         #feed-right .feed-entry .period {
-            color:#555;
-            font-style:italic;
+            color: #555;
+            font-style: italic;
         }
+
+#currently-working-on {
+}
+
+input#currently-working-on-status-new {
+    max-width:none;
+    width: 100% !important;
+}
+
+span#currently-working-on-status {
+    font-size:3em;
+    font-weight:bold;
+}
+
+#currently-working-on-edit {
+    display:none;
+}

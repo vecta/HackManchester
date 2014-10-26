@@ -5,6 +5,13 @@
     status.client.broadcastMessage = function (message, email, imageUrl, timeStamp) {
         AddStatus(message, email, imageUrl, timeStamp);
     };
+
+    var currentlyWorkingOn = $.connection.currentlyWorkingOnHub;
+
+    currentlyWorkingOn.client.broadcastMessage = function (message, email, imageUrl, timeStamp) {
+        AddStatus(message, email, imageUrl, timeStamp);
+    };
+
     // Start the connection.
     $.connection.hub.start().done(function () {
         $('#statusButton').click(function () {
@@ -12,7 +19,16 @@
             status.server.send($('#statusMessage').val());
             $('#statusMessage').val('');
         });
+
+        $('#currentlyWorkingOnButton').click(function () {
+            // Call the Send method on the hub. 
+            currentlyWorkingOn.server.send($('#currently-working-on-status-new').val());
+            $('#currently-working-on-status-new').val('');
+        });
     });
+
+    
+
 });
 
 function AddStatus(message, email, imageUrl, timeStamp) {

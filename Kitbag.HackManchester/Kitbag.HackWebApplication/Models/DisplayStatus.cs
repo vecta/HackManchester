@@ -33,8 +33,10 @@ namespace Kitbag.HackWebApplication.Models
         {
             if (status.Groups.Any())
                 return status.Groups.First().Name;
+
             if (!status.People.Any())
                 return string.Empty;
+
             var person = status.People.First();
             return String.IsNullOrEmpty(person.FirstName) ? person.Email : string.Format("{0} {1}", person.FirstName, person.LastName);
         }

@@ -24,5 +24,10 @@ namespace Kitbag.HackWebApplication.Controllers
 
             return View(model);
         }
+
+        public ActionResult Hierarchy(int id)
+        {
+            return View();
+        }
     }
 }

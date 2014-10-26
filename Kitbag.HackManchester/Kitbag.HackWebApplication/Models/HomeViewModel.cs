@@ -12,5 +12,7 @@ namespace Kitbag.HackWebApplication.Models
 
         public Group Group { get; set; }
         public Group Organisation { get; set; }
+
+        public CurrentlyWorkingOn CurrentlyWorkingOn { get; set; }
     }
 }

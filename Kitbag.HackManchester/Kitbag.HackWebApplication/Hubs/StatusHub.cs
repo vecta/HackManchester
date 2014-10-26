@@ -21,6 +21,7 @@ namespace Kitbag.HackWebApplication.Hubs
             var user = personRepository.GetByEmail(email);
             var status = new Status {CreatedDate = DateTime.Now, Status1 = message, People = new List<Person> {user}};
             statusRepository.Create(status);
+            
             var displayStatus = new DisplayStatus(status);
             var hash = FormsAuthentication.HashPasswordForStoringInConfigFile(displayStatus.Email.ToLower(), "MD5").ToLower();
 

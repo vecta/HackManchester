@@ -14,11 +14,13 @@ namespace Kitbag.HackWebApplication.Controllers
             var context = new CwonData();
             var statusRepository = new StatusRepository(context);
             var personRepository = new PersonRepository(context);
+            var currentlyWorkingOnRepository = new CurrentlyWorkingOnRepository(context);
 
             var model = new HomeViewModel
             {
                 Statuses = statusRepository.GetLatest(20).Select(status => new DisplayStatus(status)).ToList(),
                 PersonProfile = personRepository.GetByEmail(User.Identity.Name),
+                CurrentlyWorkingOn = currentlyWorkingOnRepository.GetLatestByPersonEmail(User.Identity.Name)
             };
             model.UserGroups = model.PersonProfile.Groups1;
 

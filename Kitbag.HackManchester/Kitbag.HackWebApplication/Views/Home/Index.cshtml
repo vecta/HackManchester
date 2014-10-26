@@ -1,6 +1,6 @@
 ﻿@model Kitbag.HackWebApplication.Models.HomeViewModel
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "My Feed";
 }
 
 <div class="row">
@@ -12,23 +12,54 @@
         <div class="clearfix"></div>
         <h3>User Groups</h3>
         <ul>
-            @foreach(var group in Model.UserGroups)
+            @foreach (var group in Model.UserGroups)
             {
                 <li>@Html.ActionLink(group.Name, "view", "group", new { id = group.Id }, null)</li>
-            @*<li>@Html.ActionLink("Group 1", "view", "group", new { id = 1 }, null)</li>
-            <li>@Html.ActionLink("Group 2", "view", "group", new { id = 1 }, null)</li>*@
             }
         </ul>
 
     </div>
     <div class="col-md-6">
-        <h2>My Feed</h2>
 
-        @Html.Partial("_UpdateStatus")
-        @Html.Partial("_CentralFeed", Model.Statuses)
+        <div style="border-bottom:1px dashed #ccc;">
+
+            <h2 id="currently-working-on">Currently working on..</h2>
+
+            <span id="currently-working-on-status" onlclick="">@Model.CurrentlyWorkingOn.CurrentlyWorkingOn1</span>
+            <div id="currently-working-on-edit">
+                <input type="text" id="currently-working-on-status-new" />
+                <button id="currentlyWorkingOnButton" class="btn btn-success" style="float:right">Post</button>
+            </div>
+
+        </div>
+
+
+        @*<h2>My Feed</h2>*@
+
+        <div>
+            @Html.Partial("_UpdateStatus")
+            @Html.Partial("_CentralFeed", Model.Statuses)
+
+        </div>
 
     </div>
     <div class="col-md-3">
         <h2>Other stuff</h2>
     </div>
 </div>
+
+@section Scripts{
+    <script>
+        $('#currently-working-on-status').click(function () {
+            $('#currently-working-on-edit').toggle();
+            $('#currently-working-on-status').toggle();
+            $('#currently-working-on-status-new').focus();
+        });
+
+        $('#currently-working-on-status-new').blur(function () {
+            $('#currently-working-on-edit').toggle();
+            $('#currently-working-on-status').toggle();
+        });
+
+    </script>
+}
