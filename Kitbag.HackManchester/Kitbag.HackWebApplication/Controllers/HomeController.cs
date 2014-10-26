@@ -16,18 +16,13 @@ namespace Kitbag.HackWebApplication.Controllers
             var model = new HomeViewModel();
             var statusRepository = new Repository<Status>(context);
             var personRepository = new PersonRepository(context);
-            
+
             model.Statuses = statusRepository.GetAll();
             model.PersonProfile = personRepository.GetByEmail(User.Identity.Name);
             model.UserGroups = model.PersonProfile.Groups1;
 
             model.Group = new Group() { Name = "Development", Id = 4 };
             model.Organisation = new Group() { Name = "Kitbag", Id = 3 };
-
-
-            //model.Group = model.UserGroups.FirstOrDefault();
-            //model.Group = model.PersonProfile.Groups1..OfType<YourType>().FirstOrDefault();
-            //model.Group = ((IList<Group>)model.PersonProfile.Groups1).
 
             return View(model);
         }
