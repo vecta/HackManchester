@@ -85,14 +85,14 @@ textarea {
 #people .person {
     border: 1px solid #ccc;
     float: left;
-    margin: 10px;
+    margin: 8px;
     text-align: center;
-    width: 120px;
+    width: 150px;
 }
 
     #people .person img {
         margin: 3px;
-        width: 113px;
+        width: 120px;
     }
 
     #people .person .name {
@@ -126,6 +126,8 @@ h3.site-sub-title {
 #feed-right {
     /*border-left: 1px solid #ccc;*/
     margin-top: 20px;
+    max-height:400px;
+    overflow-y:hidden;
 }
 
     #feed-right .feed-entry {

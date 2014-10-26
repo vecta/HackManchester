@@ -9,6 +9,7 @@
     {
         <div class="person">
             <div class="name">@person.FirstName @person.LastName</div>
+            <div class="job-title">@person.JobTitle</div>
             <a href="/person/view/@person.Id">
                 @Html.RenderGravatarImage(person.Email, 113)
             </a>

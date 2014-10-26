@@ -27,7 +27,9 @@ namespace Kitbag.HackWebApplication.Controllers
             {
                 model.Id = person.Id;
                 model.Name = string.Format("{0} {1}", person.FirstName, person.LastName);
-                model.Group = "Marketing";
+                model.JobTitle = person.JobTitle;
+                model.GroupId = person.Group.Group1.FirstOrDefault().Id;
+                model.Group = person.Group.Group1.FirstOrDefault().Name;
                 model.Email = person.Email;
                 model.Telephone = "0000-000-0000";
                 model.Skype = "MyAmazingSkypeName";

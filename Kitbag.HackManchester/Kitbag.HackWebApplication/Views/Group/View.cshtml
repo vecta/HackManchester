@@ -17,3 +17,12 @@
         @Html.Partial("_RightFeed", Model.PersonStatus)
     </div>
 </div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>@Model.Group.Name Structure</h3>
+        @Html.Partial("_Hierarchy", new Kitbag.HackWebApplication.Models.HierarchyViewModel())
+
+
+    </div>
+</div>

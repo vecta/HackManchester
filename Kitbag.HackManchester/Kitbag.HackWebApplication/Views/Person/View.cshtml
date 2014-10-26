@@ -3,7 +3,8 @@
     ViewBag.Title = @Model.Name;
 }
 
-<h2>@Model.Name</h2>
+<h2>@Model.Name (@Model.JobTitle)</h2>
+<h3><a href="/group/view/@Model.GroupId">@Model.Group</a></h3>
 
 <div class="row">
     <div class="col-md-3">
@@ -12,10 +13,9 @@
                 @Html.RenderGravatarImage(Model.Email, 150)
             </a>
 
-            <div class="details">
-                <div class="name">@Model.Name</div>
-                <div class="group">@Model.Group</div>
-            </div>
+            @*<div class="details">
+                <div class="group"><a href="/group/view/4">@Model.Group</a></div>
+            </div>*@
 
             <div class="details">
                 <h3>Contact Details</h3>
@@ -26,7 +26,7 @@
 
             @Html.Partial("_ListedGroups", Model.Groups)
 
-            @Html.Partial("_Hierarchy", new Kitbag.HackWebApplication.Models.HierarchyViewModel())
+            
         </div>
     </div>
     <div class="col-md-9">
