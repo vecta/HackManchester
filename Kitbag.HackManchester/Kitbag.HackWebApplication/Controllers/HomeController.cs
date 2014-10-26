@@ -9,7 +9,7 @@ namespace Kitbag.HackWebApplication.Controllers
     public class HomeController : Controller
     {
         [Authorize]
-        public ActionResult Index()
+        public ActionResult Index() 
         {
             var context = new CwonData();
             var statusRepository = new Repository<Status>(context);
