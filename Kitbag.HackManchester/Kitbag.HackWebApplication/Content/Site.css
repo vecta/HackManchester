@@ -68,9 +68,10 @@ textarea {
     border: 1px solid #bbb;
     border-radius: 5px;
     float: left;
-    height: 150px;
+    font-weight:bold;
+    height: 140px;
     text-align: center;
-    width: 150px;
+    width: 140px;
     margin: 10px;
 }
 
@@ -99,13 +100,19 @@ textarea {
         font-weight: bold;
     }
 
-    #people .person .working-on-label {
+    #people .person .job-title {
         font-size: 0.8em;
     }
 
-    #people .person .working-on {
+    #people .person .working-on-label {
         font-size: 0.8em;
-        font-style: italic;
+        font-weight: bold;
+
+    }
+
+    #people .person .working-on {
+        font-size: 1em;
+        font-style: normal;
     }
 
 footer p {
