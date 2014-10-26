@@ -4,13 +4,15 @@ using Kitbag.Database;
 using Kitbag.Domain;
 using Kitbag.HackWebApplication.Models;
 using System;
+using Kitbag.Library;
+using System.Threading.Tasks;
 
 namespace Kitbag.HackWebApplication.Controllers
 {
     public class HomeController : Controller
     {
         [Authorize]
-        public ActionResult Index() 
+        public async Task<ActionResult> Index() 
         {
             var context = new CwonData();
             var statusRepository = new StatusRepository(context);
@@ -25,6 +27,8 @@ namespace Kitbag.HackWebApplication.Controllers
                 PersonProfile = personRepository.GetByEmail(User.Identity.Name),
                 CurrentlyWorkingOn = currentlyWorkingOn == null ? new CurrentlyWorkingOn() : currentlyWorkingOn
             };
+
+            model.Appointments = await OneDiaryWrapper.TodaysAppointments();
 
             if(String.IsNullOrEmpty(model.CurrentlyWorkingOn.CurrentlyWorkingOn1 ))
             {
