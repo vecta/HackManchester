@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using Kitbag.Database;
 using Kitbag.Domain;
 using Kitbag.HackWebApplication.Models;
@@ -10,9 +11,9 @@ namespace Kitbag.HackWebApplication.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var model = new HomeViewModel();
             var repository = new Repository<Status>(new CwonData());
-            model.Statuses = repository.GetAll();
+            var model = new HomeViewModel {Statuses = repository.GetAll().Select(status => new DisplayStatus(status)).ToList()};
+
             return View(model);
         }
 

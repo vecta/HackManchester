@@ -1,24 +1,17 @@
-﻿using Kitbag.Database;
-using Kitbag.Domain;
-using Kitbag.HackWebApplication.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
+using Kitbag.Database;
+using Kitbag.HackWebApplication.Models;
 
 namespace Kitbag.HackWebApplication.Controllers
 {
     public class GroupController : Controller
     {
-        PersonRepository personRepository = new PersonRepository(new CwonData());
-        GroupRepository groupRepository = new GroupRepository(new CwonData());
+        private readonly PersonRepository personRepository = new PersonRepository(new CwonData());
+        private readonly GroupRepository groupRepository = new GroupRepository(new CwonData());
 
         // GET: Group
-        public ActionResult Index()
-        {
-            return View();
-        }
+        public ActionResult Index() { return View(); }
 
         public ActionResult View(int id)
         {
