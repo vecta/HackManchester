@@ -26,15 +26,9 @@ namespace Kitbag.HackWebApplication.Controllers
             {
                 Statuses = GetLatestStatuses(context),
                 PersonProfile = personRepository.GetByEmail(User.Identity.Name),
-                CurrentlyWorkingOn = currentlyWorkingOn ?? new CurrentlyWorkingOn()
+                CurrentlyWorkingOn = currentlyWorkingOn ?? new CurrentlyWorkingOn(),
+                Appointments = await OneDiaryWrapper.TodaysAppointments()
             };
-
-            model.Appointments = await OneDiaryWrapper.TodaysAppointments();
-//
-//            if(String.IsNullOrEmpty(model.CurrentlyWorkingOn.Message ))
-//            {
-//        //        model.CurrentlyWorkingOn.Message = "What exactly?";
-//            }
 
             model.UserGroups = model.PersonProfile.Groups1;
 

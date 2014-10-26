@@ -34,7 +34,12 @@ textarea {
 }
 
 #profileSmall #name-and-group {
-    float: left;
+
+    margin-bottom: 10px;
+}
+#profileSmall #image {
+
+    margin-bottom: 20px;
 }
 
 #feed textarea.new-status {
@@ -224,6 +229,7 @@ span#currently-working-on-status {
   border-color: transparent #ddd #ddd #ddd;
 }
 
+#profileSmall #workingOn { clear: left; padding: 10px; font-size: 14pt; text-align: left; border: 0px solid #cccccc; background-color: #ebebe6; border-radius: 5px; margin-top: 10px; color:#555555}
 
 
 

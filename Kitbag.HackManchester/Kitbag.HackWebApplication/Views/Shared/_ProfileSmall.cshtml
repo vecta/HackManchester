@@ -25,7 +25,10 @@
         <div id="group">
             @Html.ActionLink(Model.Organisation.Name, "view", "group", new { id = Model.Organisation.Id, org = "true" }, null)
 
- 
+
         </div>
+    </div>
+    <div id="workingOn">
+        <p>@Model.CurrentlyWorkingOn.Message</p>
     </div>
 </div>
