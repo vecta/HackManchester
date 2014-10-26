@@ -16,10 +16,12 @@ namespace Kitbag.HackWebApplication.Models
         public string CurrentlyWorkingOn { get; set; }
 
         public List<Group> Groups { get; set; }
+        public List<Status> Status { get; set; } 
 
         public PersonViewModel()
         {
             Groups = new List<Group>();
+            Status = new List<Status>();
         }
     }
 }
