@@ -142,7 +142,7 @@ h3.site-sub-title {
 
 input#currently-working-on-status-new {
     max-width:none;
-    width: 100% !important;
+    /*width: 100% !important;*/
 }
 
 span#currently-working-on-status {
