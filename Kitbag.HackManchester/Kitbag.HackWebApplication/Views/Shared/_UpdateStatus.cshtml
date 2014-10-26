@@ -1,6 +1,24 @@
-﻿<h3>Update Status</h3>
-<div style="margin-bottom:20px;">
-    <textarea class="new-status" style="width:85%; max-width:none; float:left;" id="statusMessage"></textarea>
-    <button class="btn btn-success" style="float:right; margin-left:10px;" id="statusButton">Post</button>
+﻿<h3>Update </h3>
+
+
+<div class="tabbable tabs-below" style="margin-bottom:20px;">
+    <div class="tab-content">
+        <div class="tab-pane active" id="one_">
+            <div id="currently-working-on-edit">
+                <textarea class="new-status" style="width:85%; max-width:none; float:left;" id="currently-working-on-status-new"></textarea>
+                <button id="currentlyWorkingOnButton" class="btn btn-success" style="float:right">Post</button>
+            </div>
+        </div>
+        <div class="tab-pane" id="two_">
+            <div >
+                <textarea class="new-status" style="width:85%; max-width:none; float:left;" id="statusMessage"></textarea>
+                <button class="btn btn-success" style="float:right; margin-left:10px;" id="statusButton">Post</button>
+            </div>
+        </div>
+    </div>
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#one_" data-toggle="tab">Currently Working On</a></li>
+        <li><a href="#two_" data-toggle="tab">Status</a></li>
+    </ul>
 </div>
-<div class="clearfix"></div>
+
