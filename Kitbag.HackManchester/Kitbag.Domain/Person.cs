@@ -17,6 +17,8 @@ namespace Kitbag.Domain
 
         public int Id { get; set; }
 
+        public int ManagerId { get; set; }
+
         [Required]
         [StringLength(256)]
         public string Email { get; set; }
@@ -28,6 +30,9 @@ namespace Kitbag.Domain
 
         [StringLength(256)]
         public string LastName { get; set; }
+
+        [StringLength(256)]
+        public string JobTitle { get; set; }
 
         public int? OrganisationId { get; set; }
 

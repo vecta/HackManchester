@@ -7,14 +7,17 @@
     <div class="col-md-3">
         <h2>Profile</h2>
 
-        @Html.Partial("_ProfileSmall")
+        @Html.Partial("_ProfileSmall", Model)
 
         <div class="clearfix"></div>
         <h3>User Groups</h3>
         <ul>
-            <li>@Html.ActionLink("Group 1", "view", "group", new { id = 1 }, null)</li>
-            <li>@Html.ActionLink("Group 2", "view", "group", new { id = 1 }, null)</li>
-
+            @foreach(var group in Model.UserGroups)
+            {
+                <li>@Html.ActionLink(group.Name, "view", "group", new { id = group.Id }, null)</li>
+            @*<li>@Html.ActionLink("Group 1", "view", "group", new { id = 1 }, null)</li>
+            <li>@Html.ActionLink("Group 2", "view", "group", new { id = 1 }, null)</li>*@
+            }
         </ul>
 
     </div>

@@ -11,8 +11,19 @@ namespace Kitbag.HackWebApplication.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var repository = new Repository<Status>(new CwonData());
-            var model = new HomeViewModel {Statuses = repository.GetAll().Select(status => new DisplayStatus(status)).ToList()};
+            var context = new CwonData();
+            var statusRepository = new Repository<Status>(context);
+            var personRepository = new PersonRepository(context);
+
+            var model = new HomeViewModel
+            {
+                Statuses = statusRepository.GetAll().Select(status => new DisplayStatus(status)).ToList(),
+                PersonProfile = personRepository.GetByEmail(User.Identity.Name),
+            };
+            model.UserGroups = model.PersonProfile.Groups1;
+
+            model.Group = new Group {Name = "Development", Id = 4};
+            model.Organisation = new Group {Name = "Kitbag", Id = 3};
 
             return View(model);
         }
