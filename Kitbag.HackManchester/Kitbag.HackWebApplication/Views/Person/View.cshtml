@@ -1,35 +1,38 @@
-﻿@using Microsoft.Ajax.Utilities
-@model Kitbag.HackWebApplication.Models.PersonViewModel
+﻿@model Kitbag.HackWebApplication.Models.PersonViewModel
 @{
     ViewBag.Title = @Model.Name;
 }
 
 <h2>@Model.Name</h2>
 
-<div id="person-profile">
-    <div class="image">
-        <img src="~/Content/images/headshot.jpg" />
-    </div>
+<div class="row">
+    <div class="col-md-3">
+        <div id="person-profile">
+            <div class="image">
+                <img src="~/Content/images/headshot.jpg" />
+            </div>
 
-    <div class="details">
-        <div class="name">@Model.Name</div>
-        <div class="group">@Model.Group</div>
-    </div>
+            <div class="details">
+                <div class="name">@Model.Name</div>
+                <div class="group">@Model.Group</div>
+            </div>
 
-    <div class="details">
-        <h3>Contact Details</h3>
-        <div class="email">Email : @Model.Email</div>
-        <div class="telephone">Telephone : @Model.Telephone</div>
-        <div class="skype">Skype : @Model.Skype</div>
-        <div class="currently-working-on">Currently Working On : @Model.CurrentlyWorkingOn</div>
-    </div>  
-  
-    <h3>User Groups</h3>
-    <ul>
-        @foreach (var group in Model.Groups)
-        {
-            <li>@Html.ActionLink("Group: " + group.Name, "view", "group", new { id = 1 }, null)</li>
-        }
-    </ul>
+            <div class="details">
+                <h3>Contact Details</h3>
+                <div class="email">Email : @Model.Email</div>
+                <div class="telephone">Telephone : @Model.Telephone</div>
+                <div class="skype">Skype : @Model.Skype</div>
+                <div class="currently-working-on">Currently Working On : @Model.CurrentlyWorkingOn</div>
+            </div>
+
+            @Html.Partial("_ListedGroups", Model.Groups)
+        </div>
+    </div>
+    <div class="col-md-9">
+        <h2>Status</h2>
+        @Html.Partial("_CentralFeed", Model.Status)
+    </div>
 </div>
+
+
 

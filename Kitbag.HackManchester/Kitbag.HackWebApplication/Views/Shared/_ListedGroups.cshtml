@@ -1,0 +1,11 @@
+﻿@model List<Kitbag.Domain.Group>
+<h3>User Groups</h3>
+<ul>
+    @foreach (var group in Model)
+    {
+        <li>@Html.ActionLink("Group: " + group.Name, "view", "group", new { id = 1 }, null)</li>
+    }
+</ul>
+
+
+
