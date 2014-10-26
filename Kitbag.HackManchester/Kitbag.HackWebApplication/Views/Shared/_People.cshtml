@@ -14,7 +14,7 @@
                 @Html.RenderGravatarImage(person.Email, 113)
             </a>
             <div class="working-on-label">Currently working on..</div>
-            <div class="working-on">Year end financial report</div>
+            <div class="working-on">@person.CurrentlyWorkingOns.FirstOrDefault().CurrentlyWorkingOn1</div>
         </div>
     }
 

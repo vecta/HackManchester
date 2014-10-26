@@ -1,1 +1,18 @@
-﻿Appointments
+﻿@model List<Kitbag.Domain.Appointment>
+
+@{
+    var startTime = new DateTime(2014, 10, 26, 9, 0, 0);
+}
+
+<div id="appointments">
+    @foreach(var appointment in Model)
+    {
+        
+        <div class="appointment">
+            <div class="title">@appointment.summary</div>
+            <div class="time">@appointment.start</div>
+        </div>
+        
+        startTime = startTime.AddHours(1);
+    }
+</div>

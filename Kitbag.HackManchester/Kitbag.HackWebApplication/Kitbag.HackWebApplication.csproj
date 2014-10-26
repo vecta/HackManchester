@@ -289,6 +289,10 @@
       <Project>{a37c4658-fc5c-4bee-b4cd-8fb7c97df9de}</Project>
       <Name>Kitbag.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Kitbag.Library\Kitbag.Library.csproj">
+      <Project>{a96bc6ff-8109-4074-a93a-c76969bd3a38}</Project>
+      <Name>Kitbag.Library</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
