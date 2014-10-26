@@ -3,7 +3,7 @@
 <ul>
     @foreach (var group in Model)
     {
-        <li>@Html.ActionLink("Group: " + group.Name, "view", "group", new { id = group.Id }, null)</li>
+        <li>@Html.ActionLink(group.Name, "view", "group", new { id = group.Id }, null)</li>
     }
 </ul>
 

@@ -9,7 +9,7 @@
     <div class="col-md-3">
         <div id="person-profile">
             <div class="image">
-                <img src="~/Content/images/headshot.jpg" />
+                @Html.RenderGravatarImage(Model.Email, 150)
             </div>
 
             <div class="details">
@@ -31,7 +31,7 @@
         <h1 class="c-won-Font">
             <em>currently</em><strong>working</strong><em>on..</em> @Model.CurrentlyWorkingOn
         </h1>
-        <h2>Status</h2>
+        <h2>Status Feed</h2>
         @Html.Partial("_CentralFeed", Model.Status)
     </div>
 </div>

@@ -17,11 +17,14 @@ namespace Kitbag.Database
         }
         public IList<Person> GetByGroup(int groupId)
         {
-
             var people = base._dbContext.Groups.Include("People1").FirstOrDefault(x => x.Id == groupId).People1.ToList();
 
-
             return people;
+        }
+
+        public IList<Person> GetByManagerId(int managerId)
+        {
+            return base._dbContext.People.Where(x => x.ManagerId == managerId).ToList();
         }
     }
 }

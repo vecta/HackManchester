@@ -25,6 +25,8 @@ namespace Kitbag.Domain
 
         public int? SocialMediaSourceId { get; set; }
 
+        public int? HierarchyLevel { get; set; }
+
         [StringLength(256)]
         public string FirstName { get; set; }
 
@@ -39,6 +41,8 @@ namespace Kitbag.Domain
         public virtual ICollection<Group> Groups { get; set; }
 
         public virtual Group Group { get; set; }
+
+        //public virtual ICollection<Person> Reports { get; set; }
 
         public virtual SocialMediaSource SocialMediaSource { get; set; }
 

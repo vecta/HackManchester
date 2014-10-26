@@ -21,7 +21,7 @@ namespace Kitbag.HackWebApplication.Hubs
             var personRepository = new PersonRepository(dbContext);
             var user = personRepository.GetByEmail(email);
             
-            var currentlyWorkingOn = new CurrentlyWorkingOn {CreatedDate = DateTime.Now,  CurrentlyWorkingOn1 = message, People = new List<Person> {user}};
+            var currentlyWorkingOn = new CurrentlyWorkingOn {CreatedDate = DateTime.Now,  CurrentlyWorkingOn1 = "is currently working on " + message, People = new List<Person> {user}};
             currentlyWorkingOnRepository.Create(currentlyWorkingOn);
 
             var displayStatus = new DisplayCurrentlyWorkingOn(currentlyWorkingOn);

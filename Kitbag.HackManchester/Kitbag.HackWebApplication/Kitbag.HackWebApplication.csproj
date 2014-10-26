@@ -182,6 +182,7 @@
     <Compile Include="Models\DisplayCurrentlyWorkingOn.cs" />
     <Compile Include="Models\DisplayStatus.cs" />
     <Compile Include="Models\GroupViewModel.cs" />
+    <Compile Include="Models\HierarchyViewModel.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MyProfileViewModel.cs" />
@@ -265,6 +266,7 @@
     <Content Include="Views\MyProfile\Index.cshtml" />
     <Content Include="Views\Shared\_ListedGroups.cshtml" />
     <Content Include="Views\Group\Hierarchy.cshtml" />
+    <Content Include="Views\Shared\_Hierarchy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

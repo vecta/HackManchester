@@ -27,7 +27,15 @@ namespace Kitbag.HackWebApplication.Controllers
 
         public ActionResult Hierarchy(int id)
         {
-            return View();
+            var model = new HierarchyViewModel();
+            model.People = personRepository.GetByGroup(id).OrderBy(x => x.HierarchyLevel).ToList();
+
+            foreach (var person in model.People)
+            {
+                //person.Reports = personRepository.GetByManagerId(person.Id);
+            }
+
+            return View(model);
         }
     }
 }
